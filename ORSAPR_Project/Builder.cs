@@ -13,7 +13,6 @@ namespace ORSAPR_Project
         // public KompasConnector kompas;
         public void Build(ksPart iPart, KompasObject _kompas, HiveParams hiveparams)
         {
-          //  HiveParams = hiveParams;
             this.iPart = iPart;
             CreateMain(iPart, _kompas,hiveparams);
             CreateLeg1(iPart, _kompas, hiveparams);

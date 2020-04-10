@@ -36,7 +36,6 @@ namespace ORSAPR_Project
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
 
             // Построить прямоугольник (x1,y1, x2,y2, style)
-            // ksRectangleParam par1 = (ksRectangleParam)iKompasObject.GetParamStruct((short)StructType2DEnum.ko_RectangleParam); 
             ksRectangleParam par1 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
             par1.ang = 0; //Угол ?
                 par1.x = 10;
@@ -63,18 +62,13 @@ namespace ORSAPR_Project
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
 
-            // Построить линию (x1,y1, x2,y2, style)
-            //iDocument2D.ksLineSeg(0, 0, 0, 3, 1);
-            //iDocument2D.ksLineSeg(0, 3, 2, 3, 1);
-            //iDocument2D.ksLineSeg(2, 3, 2, 0, 1);
-            //iDocument2D.ksLineSeg(2, 0, 0, 0, 1);
             ksRectangleParam par3 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-            par3.ang = 0; //Угол ?
+            par3.ang = 0; //Угол 
             par3.x = 10;
             par3.y = hiveParams.HiveHeight;
-            par3.width = hiveParams.LegWidth; // Уменьшает толщину 
-            par3.height = hiveParams.LegHeight; // Больше похоже на ширину, нежели высоту. Это высота ?
-            par3.style = 1; // При нуле не видно деталь.
+            par3.width = hiveParams.LegWidth;  
+            par3.height = hiveParams.LegHeight; 
+            par3.style = 1; 
             iDocument2D.ksRectangle(par3);
 
             // Закончить редактировать эскиз
@@ -95,18 +89,13 @@ namespace ORSAPR_Project
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
 
-            // Построить линию (x1,y1, x2,y2, style)
-            //iDocument2D.ksLineSeg(0, 0, 0, 3, 1);
-            //iDocument2D.ksLineSeg(0, 3, 2, 3, 1);
-            //iDocument2D.ksLineSeg(2, 3, 2, 0, 1);
-            //iDocument2D.ksLineSeg(2, 0, 0, 0, 1);
             ksRectangleParam par4 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-            par4.ang = 0; //Угол ?
+            par4.ang = 0; //Угол
             par4.x =(hiveParams.HiveLength - (hiveParams.LegLength )) +10 ;
             par4.y = hiveParams.HiveHeight;
-            par4.width = hiveParams.LegWidth; // Уменьшает толщину 
-            par4.height = hiveParams.LegHeight; // Больше похоже на ширину, нежели высоту. Это высота ?
-            par4.style = 1; // При нуле не видно деталь.
+            par4.width = hiveParams.LegWidth;  
+            par4.height = hiveParams.LegHeight; 
+            par4.style = 1; 
             iDocument2D.ksRectangle(par4);
             // Закончить редактировать эскиз
             iDefinitionSketch.EndEdit();
@@ -127,18 +116,13 @@ namespace ORSAPR_Project
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
 
-            // Построить линию (x1,y1, x2,y2, style)
-            //iDocument2D.ksLineSeg(0, 0, 0, 3, 1);
-            //iDocument2D.ksLineSeg(0, 3, 2, 3, 1);
-            //iDocument2D.ksLineSeg(2, 3, 2, 0, 1);
-            //iDocument2D.ksLineSeg(2, 0, 0, 0, 1);
             ksRectangleParam par5 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
             par5.ang = 0; //Угол ?
             par5.x = 10;
             par5.y = hiveParams.HiveHeight;
-            par5.width = hiveParams.LegWidth; // Уменьшает толщину 
-            par5.height = hiveParams.LegHeight; // Больше похоже на ширину, нежели высоту. Это высота ?
-            par5.style = 1; // При нуле не видно деталь.
+            par5.width = hiveParams.LegWidth; 
+            par5.height = hiveParams.LegHeight; 
+            par5.style = 1; 
             iDocument2D.ksRectangle(par5);
 
             // Закончить редактировать эскиз
@@ -158,18 +142,12 @@ namespace ORSAPR_Project
 
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
-
-            // Построить линию (x1,y1, x2,y2, style)
-            //iDocument2D.ksLineSeg(0, 0, 0, 3, 1);
-            //iDocument2D.ksLineSeg(0, 3, 2, 3, 1);
-            //iDocument2D.ksLineSeg(2, 3, 2, 0, 1);
-            //iDocument2D.ksLineSeg(2, 0, 0, 0, 1);
             ksRectangleParam par6 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-            par6.ang = 0; //Угол ?
+            par6.ang = 0; //Угол 
             par6.x = (hiveParams.HiveLength - (hiveParams.LegLength)) + 10;
             par6.y = hiveParams.HiveHeight;
-            par6.width = hiveParams.LegWidth; // Уменьшает толщину 
-            par6.height = hiveParams.LegHeight; // Больше похоже на ширину, нежели высоту. Это высота ?
+            par6.width = hiveParams.LegWidth; 
+            par6.height = hiveParams.LegHeight; 
             par6.style = 1; // При нуле не видно деталь.
             iDocument2D.ksRectangle(par6);
 
@@ -194,8 +172,8 @@ namespace ORSAPR_Project
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
 
+            
             // Построить прямоугольник (x1,y1, x2,y2, style)
-            // ksRectangleParam par1 = (ksRectangleParam)iKompasObject.GetParamStruct((short)StructType2DEnum.ko_RectangleParam); 
             ksRectangleParam par1 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
             par1.ang = 0; //Угол ?
             par1.x = 10 - 10   ;
@@ -213,7 +191,6 @@ namespace ORSAPR_Project
 
         public void CreateHoles(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            //double floorCount = (hiveParams.HiveHeight / 300);
             int floorCount = (int)(hiveParams.HiveHeight / 300);
             double offset = hiveParams.HiveLength + 20;
             //double offset = -20;
@@ -226,40 +203,43 @@ namespace ORSAPR_Project
 
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
+            // excess - Переменная, которая хранит в себе излишки(превышения) размера этажа, используется для 
+            //правильной центровки отверстий.
+            double excess;
             switch (floorCount)
-            { 
+            {
                 case 1:
                     iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, hiveParams.HiveHeight / 2, radius, 1);
                     break;
                 case 2:
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, 300/2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, 600/ 1.3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight /4), radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, (hiveParams.HiveHeight /4) *3, radius, 1);
                     break;
                 case 3:
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 6), radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 6)*3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 6)*5, radius, 1);
                     break;
                 case 4:
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1200 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 1, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 5, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 7, radius, 1);
                     break;
                 case 5:
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1200 / 1.2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1500 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 1, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 5, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 7, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 9, radius, 1);
                     break;
                 case 6:
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1200 / 1.2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1500 / 1.2, radius, 1);
-                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1800 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 1, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 5, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 7, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 9, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 11, radius, 1);
                     break;
                 default:
                     iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, hiveParams.HiveHeight / 2, radius, 1);
@@ -293,23 +273,21 @@ namespace ORSAPR_Project
         {
             double offset = -10;
             double thickness = 5;
-            //double floorCount = (hiveParams.HiveHeight / 300);
             int floorCount = (int)(hiveParams.HiveHeight / 300);
             ksEntity iSketch;
 
             ksSketchDefinition iDefinitionSketch;
             CreateSketch(out iSketch, out iDefinitionSketch, offset);
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
-
             switch (floorCount)
             {
                 case 1:
                     break;
-                case 2:
+                case 2:  
                     ksRectangleParam par7 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-                    par7.ang = 0; //Угол ?
+                    par7.ang = 0; //Угол 
                     par7.x = 10 - 10;
-                    par7.y = hiveParams.HiveHeight / 2;
+                    par7.y = (hiveParams.HiveHeight / 2);
                     par7.width = hiveParams.HiveWidth + 20;
                     par7.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par7.style = 1;
@@ -321,14 +299,14 @@ namespace ORSAPR_Project
                     break;
                 case 3:
                     ksRectangleParam par8 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-                    par8.ang = 0; //Угол ?
+                    par8.ang = 0; //Угол 
                     par8.x = 10 - 10;
-                    par8.y = 300;
+                    par8.y = (hiveParams.HiveHeight / 6)*2;
                     par8.width = hiveParams.HiveWidth + 20;
                     par8.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par8.style = 1;
                     iDocument2D.ksRectangle(par8);
-                    par8.y = 600;
+                    par8.y = (hiveParams.HiveHeight / 6)*4;
                     iDocument2D.ksRectangle(par8);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
@@ -336,16 +314,16 @@ namespace ORSAPR_Project
                     break;
                 case 4:
                     ksRectangleParam par9 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-                    par9.ang = 0; //Угол ?
+                    par9.ang = 0; //Угол 
                     par9.x = 10 - 10;
-                    par9.y = 300;
+                    par9.y = (hiveParams.HiveHeight / 8) * 2;
                     par9.width = hiveParams.HiveWidth + 20;
                     par9.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par9.style = 1; // При нуле не видно деталь.
                     iDocument2D.ksRectangle(par9);
-                    par9.y = 600;
+                    par9.y = (hiveParams.HiveHeight / 8) * 4;
                     iDocument2D.ksRectangle(par9);
-                    par9.y = 900;
+                    par9.y = (hiveParams.HiveHeight / 8) * 6;
                     iDocument2D.ksRectangle(par9);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
@@ -354,18 +332,18 @@ namespace ORSAPR_Project
                     break;
                 case 5:
                     ksRectangleParam par10 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-                    par10.ang = 0; //Угол ?
+                    par10.ang = 0; //Угол 
                     par10.x = 10 - 10;
-                    par10.y = 300;
+                    par10.y = (hiveParams.HiveHeight / 10) * 2;
                     par10.width = hiveParams.HiveWidth + 20;
                     par10.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par10.style = 1; // При нуле не видно деталь.
                     iDocument2D.ksRectangle(par10);
-                    par10.y = 600;
+                    par10.y = (hiveParams.HiveHeight / 10) * 4;
                     iDocument2D.ksRectangle(par10);
-                    par10.y = 900;
+                    par10.y = (hiveParams.HiveHeight / 10) * 6;
                     iDocument2D.ksRectangle(par10);
-                    par10.y = 1200;
+                    par10.y = (hiveParams.HiveHeight / 10) * 8;
                     iDocument2D.ksRectangle(par10);
                    
                     // Закончить редактировать эскиз
@@ -375,20 +353,25 @@ namespace ORSAPR_Project
                     break;
                 case 6:
                     ksRectangleParam par11 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
-                    par11.ang = 0; //Угол ?
+                    par11.ang = 0; //Угол 
                     par11.x = 10 - 10;
-                    par11.y = 300;
+                    //par11.y = 300;
+                    par11.y = (hiveParams.HiveHeight / 12) * 2;
                     par11.width = hiveParams.HiveWidth + 20;
                     par11.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par11.style = 1; // При нуле не видно деталь.
                     iDocument2D.ksRectangle(par11);
-                    par11.y = 600;
+                    //par11.y = 600;
+                    par11.y = (hiveParams.HiveHeight / 12) * 4;
                     iDocument2D.ksRectangle(par11);
-                    par11.y = 900;
+                    //par11.y = 900;
+                    par11.y = (hiveParams.HiveHeight / 12) * 6;
                     iDocument2D.ksRectangle(par11);
-                    par11.y = 1200;
+                    //par11.y = 1200;
+                    par11.y = (hiveParams.HiveHeight / 12) * 8;
                     iDocument2D.ksRectangle(par11);
-                    par11.y = 1500;
+                    //par11.y = 1500;
+                    par11.y = (hiveParams.HiveHeight / 12) * 10;
                     iDocument2D.ksRectangle(par11);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();

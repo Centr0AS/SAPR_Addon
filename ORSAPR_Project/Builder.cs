@@ -213,8 +213,9 @@ namespace ORSAPR_Project
 
         public void CreateHole(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            double thickness = 100;
-            double offset = 0;
+            //double thickness = 100;
+            double offset = 20;
+            //double offset = -20;
             double radius = hiveParams.InletDiameters;
             ksEntity iSketch;
 
@@ -225,13 +226,27 @@ namespace ORSAPR_Project
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
 
-            iDocument2D.ksCircle(hiveParams.HiveLength / 2, hiveParams.HiveHeight/2, radius, 1);
-            iDocument2D.ksColouring(2);
+            iDocument2D.ksCircle(hiveParams.HiveLength / 2, hiveParams.HiveHeight / 2, radius, 1);
+            //iDocument2D.ksColouring(2);
+            //iDocument2D.ksLineSeg(50, 50, -50, 50, 1);
+            //iDocument2D.ksLineSeg(50, -50, -50, -50, 1);
+            //iDocument2D.ksLineSeg(50, -50, 50, 50, 1);
+            //iDocument2D.ksLineSeg(-50, -50, -50, 50, 1);
             //iDocument2D.ksCutLine(par1)
             // Закончить редактировать эскиз
             iDefinitionSketch.EndEdit();
 
-            ExctrusionSketch(iPart, iSketch, thickness+1010, true);
+            //**
+            ksEntity entityCutExtr = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
+            ksCutExtrusionDefinition cutExtrDef = (ksCutExtrusionDefinition)entityCutExtr.GetDefinition();
+            cutExtrDef.SetSketch(iSketch);    // установим эскиз операции
+            cutExtrDef.directionType = (short)Direction_Type.dtNormal; //прямое направление
+            cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
+            cutExtrDef.SetThinParam(false, 0, 0, 0);
+            entityCutExtr.Create(); // создадим операцию вырезание выдавливанием
+                                    //**
+
+            // ExctrusionSketch(iPart, iSketch, thickness+1010, true);
         }
 
 

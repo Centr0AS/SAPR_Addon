@@ -136,27 +136,27 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(230, 186);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 13);
+            this.label16.Size = new System.Drawing.Size(106, 13);
             this.label16.TabIndex = 23;
-            this.label16.Text = "(от 100 до 500 мм)";
+            this.label16.Text = "(от 100 до 1000 мм)";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(230, 160);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 13);
+            this.label15.Size = new System.Drawing.Size(106, 13);
             this.label15.TabIndex = 22;
-            this.label15.Text = "(от 100 до 500 мм)";
+            this.label15.Text = "(от 100 до 1000 мм)";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(230, 134);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 13);
+            this.label14.Size = new System.Drawing.Size(106, 13);
             this.label14.TabIndex = 21;
-            this.label14.Text = "(от 100 до 500 мм)";
+            this.label14.Text = "(от 100 до 1000 мм)";
             // 
             // label13
             // 
@@ -174,7 +174,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(106, 13);
             this.label12.TabIndex = 19;
-            this.label12.Text = "(от 300 до 1000 мм)";
+            this.label12.Text = "(от 300 до 1800 мм)";
             // 
             // label11
             // 
@@ -183,7 +183,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 13);
             this.label11.TabIndex = 18;
-            this.label11.Text = "(от 300 до 1000 мм)";
+            this.label11.Text = "(от 300 до 1800 мм)";
             // 
             // label10
             // 
@@ -192,7 +192,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 13);
             this.label10.TabIndex = 17;
-            this.label10.Text = "(от 200 до 1000 мм)";
+            this.label10.Text = "(от 200 до 1800 мм)";
             // 
             // label9
             // 

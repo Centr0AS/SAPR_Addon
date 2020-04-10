@@ -312,7 +312,7 @@ namespace ORSAPR_Project
                     par7.y = hiveParams.HiveHeight / 2;
                     par7.width = hiveParams.HiveWidth + 20;
                     par7.height = thickness; // Больше похоже на ширину, нежели высоту.
-                    par7.style = 1; // При нуле не видно деталь.
+                    par7.style = 1;
                     iDocument2D.ksRectangle(par7);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
@@ -326,7 +326,7 @@ namespace ORSAPR_Project
                     par8.y = 300;
                     par8.width = hiveParams.HiveWidth + 20;
                     par8.height = thickness; // Больше похоже на ширину, нежели высоту.
-                    par8.style = 1; // При нуле не видно деталь.
+                    par8.style = 1;
                     iDocument2D.ksRectangle(par8);
                     par8.y = 600;
                     iDocument2D.ksRectangle(par8);

@@ -36,9 +36,9 @@ namespace ORSAPR_Project
             get => _hiveHeight;
             set
             {
-                if (value < 200 || value > 1000)
+                if (value < 200 || value > 1800)
                 {
-                    throw new ArgumentException("Значение должно находиться в диапазоне от 100 до 1000");
+                    throw new ArgumentException("Значение должно находиться в диапазоне от 100 до 1800");
                 }
 
                 _hiveHeight = value;
@@ -48,9 +48,9 @@ namespace ORSAPR_Project
             get => _hiveLength;
             set
             {
-                if (value < 300 || value > 1000)
+                if (value < 300 || value > 1800)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 300 до 1000");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 300 до 1800");
                 }
 
                 _hiveLength = value;
@@ -60,10 +60,10 @@ namespace ORSAPR_Project
             get => _hiveWidth;
             set
             {
-                //if (value < 300 || value > 1000)
-                //{
-                //    throw new ArgumentException("Значение должно находится в диапазоне от 300 до 1000");
-                //}
+                if (value < 300 || value > 1800)
+                {
+                   throw new ArgumentException("Значение должно находится в диапазоне от 300 до 1800");
+                }
 
                 _hiveWidth = value;
             }
@@ -74,7 +74,7 @@ namespace ORSAPR_Project
             {
                 if (value < 10 || value > 100)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 100 до 100");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 10 до 100");
                 }
 
                 _inletDiameters = value;
@@ -84,9 +84,9 @@ namespace ORSAPR_Project
             get =>_legHeight;
             set
             {
-                if (value < 50 || value > 500 )
+                if (value < 50 || value > 1000 )
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 500");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
                 }
 
                 _legHeight = value;
@@ -96,9 +96,9 @@ namespace ORSAPR_Project
             get => _legLength;
             set
             {
-                if (value < 50 || value > 500)
+                if (value < 50 || value > 1000)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 500");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
                 }
 
                 _legLength = value;
@@ -108,9 +108,9 @@ namespace ORSAPR_Project
             get => _legWidth;
             set
             {
-                if (value < 50 || value > 500)
+                if (value < 50 || value > 1000)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 500");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
                 }
 
                 _legWidth = value;

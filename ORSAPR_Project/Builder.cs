@@ -213,7 +213,8 @@ namespace ORSAPR_Project
 
         public void CreateHoles(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            double floorCount = (hiveParams.HiveHeight / 300);
+            //double floorCount = (hiveParams.HiveHeight / 300);
+            int floorCount = (int)(hiveParams.HiveHeight / 300);
             double offset = hiveParams.HiveLength + 20;
             //double offset = -20;
             double radius = hiveParams.InletDiameters;
@@ -260,6 +261,9 @@ namespace ORSAPR_Project
                     iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1500 / 1.2, radius, 1);
                     iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1800 / 1.2, radius, 1);
                     break;
+                default:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, hiveParams.HiveHeight / 2, radius, 1);
+                    break;
 
             }
             //iDocument2D.ksColouring(2);
@@ -289,7 +293,8 @@ namespace ORSAPR_Project
         {
             double offset = -10;
             double thickness = 5;
-            double floorCount = (hiveParams.HiveHeight / 300);
+            //double floorCount = (hiveParams.HiveHeight / 300);
+            int floorCount = (int)(hiveParams.HiveHeight / 300);
             ksEntity iSketch;
 
             ksSketchDefinition iDefinitionSketch;

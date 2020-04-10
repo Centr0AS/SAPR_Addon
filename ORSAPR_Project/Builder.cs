@@ -20,7 +20,7 @@ namespace ORSAPR_Project
             CreateLeg3(iPart, _kompas, hiveparams);
             CreateLeg4(iPart, _kompas, hiveparams);
             CreateRoof(iPart, _kompas, hiveparams);
-            CreateHole(iPart, _kompas, hiveparams);
+            CreateHoles(iPart, _kompas, hiveparams);
             CreateBorder(iPart, _kompas, hiveparams);
         }
         public void CreateMain(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
@@ -209,12 +209,12 @@ namespace ORSAPR_Project
             iDefinitionSketch.EndEdit();
 
             ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength +20 , true);
-        }
+         }
 
-        public void CreateHole(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
+        public void CreateHoles(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            //double thickness = 100;
-            double offset = 20;
+            double floorCount = (hiveParams.HiveHeight / 300);
+            double offset = hiveParams.HiveLength + 20;
             //double offset = -20;
             double radius = hiveParams.InletDiameters;
             ksEntity iSketch;
@@ -225,8 +225,43 @@ namespace ORSAPR_Project
 
             // Интерфейс для рисования = на скетче;
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
+            switch (floorCount)
+            { 
+                case 1:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, hiveParams.HiveHeight / 2, radius, 1);
+                    break;
+                case 2:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, 300/2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) +10, 600/ 1.3, radius, 1);
+                    break;
+                case 3:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
+                    break;
+                case 4:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1200 / 1.2, radius, 1);
+                    break;
+                case 5:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1200 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1500 / 1.2, radius, 1);
+                    break;
+                case 6:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 300 / 2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 600 / 1.3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 900 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1200 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1500 / 1.2, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, 1800 / 1.2, radius, 1);
+                    break;
 
-            iDocument2D.ksCircle(hiveParams.HiveLength / 2, hiveParams.HiveHeight / 2, radius, 1);
+            }
             //iDocument2D.ksColouring(2);
             //iDocument2D.ksLineSeg(50, 50, -50, 50, 1);
             //iDocument2D.ksLineSeg(50, -50, -50, -50, 1);
@@ -347,6 +382,8 @@ namespace ORSAPR_Project
                     par11.y = 900;
                     iDocument2D.ksRectangle(par11);
                     par11.y = 1200;
+                    iDocument2D.ksRectangle(par11);
+                    par11.y = 1500;
                     iDocument2D.ksRectangle(par11);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();

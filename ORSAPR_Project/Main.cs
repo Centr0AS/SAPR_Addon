@@ -118,8 +118,8 @@ namespace Hive_Kompas
             {
                 button1.Enabled = true;
                 hiveParams = new HiveParams(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToDouble(textBox3.Text),
-                    Convert.ToDouble(textBox4.Text), Convert.ToDouble(textBox5.Text), Convert.ToDouble(textBox6.Text),
-                    Convert.ToDouble(textBox7.Text), Convert.ToDouble(textBox8.Text));
+                    Convert.ToDouble(textBox4.Text), Convert.ToDouble(textBox7.Text), Convert.ToDouble(textBox6.Text),
+                    Convert.ToDouble(textBox5.Text), Convert.ToDouble(textBox8.Text));
                 label18.Visible = false;
             }
         }

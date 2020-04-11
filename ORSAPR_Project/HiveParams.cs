@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hive_Kompas
 {
-    class HiveParams
+    public class HiveParams
     {
         private double _hiveHeight;
         private double _hiveLength;

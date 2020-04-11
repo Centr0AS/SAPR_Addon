@@ -205,7 +205,6 @@ namespace Hive_Kompas
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
             // excess - Переменная, которая хранит в себе излишки(превышения) размера этажа, используется для 
             //правильной центровки отверстий.
-            double excess;
             switch (floorCount)
             {
                 case 1:

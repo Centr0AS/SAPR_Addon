@@ -76,6 +76,7 @@ namespace Hive_Kompas.UnitTests
             var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             Assert.Throws<ArgumentException>(() => { hiveParams.InletDiameters = wrongHeight; }, "-");
         }
+
         [Test(Description = "Позитивный тест геттера LegHeight")]
         public void TestLegHeightGet_CorrectValue()
         {
@@ -93,6 +94,7 @@ namespace Hive_Kompas.UnitTests
             var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             Assert.Throws<ArgumentException>(() => { hiveParams.LegHeight = wrongHeight; }, "-");
         }
+
         [Test(Description = "Позитивный тест геттера LegLength")]
         public void TestLegLengthGet_CorrectValue()
         {
@@ -110,6 +112,7 @@ namespace Hive_Kompas.UnitTests
             var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             Assert.Throws<ArgumentException>(() => { hiveParams.LegLength = wrongHeight; }, "-");
         }
+
         [Test(Description = "Позитивный тест геттера LegWidth")]
         public void TestLegWidthGet_CorrectValue()
         {

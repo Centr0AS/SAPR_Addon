@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hive_Kompas
 {
+    /// <summary>
+    /// Класс, который содержит в себе поля для параметров улья.
+    /// </summary>
     public class HiveParams
     {
         private double _hiveHeight;
@@ -17,6 +16,17 @@ namespace Hive_Kompas
         private double _legWidth;
         private double _roofThickness;
 
+        /// <summary>
+        /// Конструктор класса HiveParams
+        /// </summary>
+        /// <param name="hiveHeight"> Высота улья</param>
+        /// <param name="hiveLength"> Длина улья</param>
+        /// <param name="hiveWidth"> Ширина улья</param>
+        /// <param name="inletDiameters"> Диаметры отверстий для пчёл</param>
+        /// <param name="legHeight"> Высота ножек улья</param>
+        /// <param name="legLength"> Длина ножек улья</param>
+        /// <param name="legWidth"> Ширина ножек улья</param>
+        /// <param name="roofThickness"> Толщина крыши</param>
         public HiveParams(double hiveHeight, double hiveLength, double hiveWidth, double inletDiameters, double legHeight, double legLength,
             double legWidth, double roofThickness)
         {
@@ -38,7 +48,7 @@ namespace Hive_Kompas
             {
                 if (value < 200 || value > 1800)
                 {
-                    throw new ArgumentException("Значение должно находиться в диапазоне от 100 до 1800");
+                    throw new ArgumentException("Значение должно находиться в диапазоне от 200 до 1800");
                 }
 
                 _hiveHeight = value;
@@ -98,7 +108,7 @@ namespace Hive_Kompas
             {
                 if (value < 50 || value > 600)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 600");
                 }
 
                 _legLength = value;
@@ -110,7 +120,7 @@ namespace Hive_Kompas
             {
                 if (value < 50 || value > 600)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 600");
                 }
 
                 _legWidth = value;
@@ -120,9 +130,9 @@ namespace Hive_Kompas
             get => _roofThickness;
             set
             {
-                if (value < 100 || value > 350)
+                if (value < 5 || value > 100)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 100 до 350");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 5 до 100");
                 }
 
                 _roofThickness = value;

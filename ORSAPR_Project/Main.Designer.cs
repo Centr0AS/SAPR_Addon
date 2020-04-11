@@ -129,9 +129,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(230, 212);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 13);
+            this.label17.Size = new System.Drawing.Size(88, 13);
             this.label17.TabIndex = 24;
-            this.label17.Text = "(от 50 до 350 мм)";
+            this.label17.Text = "(от 5 до 100 мм)";
             // 
             // label16
             // 

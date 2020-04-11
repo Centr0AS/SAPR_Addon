@@ -15,6 +15,9 @@ namespace Hive_Kompas
             autoFill();
         }
         
+        /// <summary>
+        /// Функция, которая производит автозаполнение данных в поля.
+        /// </summary>
         private void autoFill()
         {
             HheightTextBox.Text = "300";
@@ -24,15 +27,17 @@ namespace Hive_Kompas
             LlengthTextBox.Text = "100";
             LwidthTextBox.Text = "50";
             LheigthTextBox.Text = "50";
-            RoofThicknessTextBox.Text = "100";
+            RoofThicknessTextBox.Text = "5";
         }
-
+        /// <summary>
+        /// Функция проверяет правильность введенных данных в поля, если же все данные верны то присваивает значения.
+        /// </summary>
         private void validateAndSet_Values()
         {
             label18.Visible = true;
             button1.Enabled = false;
+            // Переменная, которая ведет подсчёт правильно заполненых полей.
             int rightToken = 0;
-
             if ((HheightTextBox.Text == "") || double.Parse(HheightTextBox.Text) < 200 || double.Parse(HheightTextBox.Text) > 1800 || HheightTextBox.Text.Length > 8)
             {
                 HheightTextBox.BackColor = System.Drawing.Color.Red;
@@ -103,7 +108,7 @@ namespace Hive_Kompas
                 rightToken++;
             }
 
-            if ((RoofThicknessTextBox.Text == "") || double.Parse(RoofThicknessTextBox.Text) < 100 || (double.Parse(RoofThicknessTextBox.Text)) > 350 || RoofThicknessTextBox.Text.Length > 8)
+            if ((RoofThicknessTextBox.Text == "") || double.Parse(RoofThicknessTextBox.Text) < 5 || (double.Parse(RoofThicknessTextBox.Text)) > 100 || RoofThicknessTextBox.Text.Length > 8)
             {
                 RoofThicknessTextBox.BackColor = System.Drawing.Color.Red;
             }
@@ -141,17 +146,26 @@ namespace Hive_Kompas
             }
         }
 
+        /// <summary>
+        /// Функция, которая является обработчиком события(срабатывает при изменение значения  в текстовом поле).
+        /// </summary>
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             validateAndSet_Values();
         }
 
+        /// <summary>
+        /// Обработчик кнопки "Построить."
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             kompasConnector = new KompasConnector(hiveParams);
             Builder builder = new Builder();
             builder.Build(kompasConnector.iPart, kompasConnector._kompas, hiveParams);   
         }
+        /// <summary>
+        /// Обработчик, который ограничивает ввод символов в поля.
+        /// </summary>
         private void textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;

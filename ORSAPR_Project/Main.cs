@@ -33,10 +33,9 @@ namespace Hive_Kompas
             button1.Enabled = false;
             int rightToken = 0;
 
-            if ((textBox1.Text == "") || Convert.ToInt32(textBox1.Text) < 200 || (Convert.ToInt32(textBox1.Text)) > 1800)
+            if ((textBox1.Text == "") || double.Parse(textBox1.Text) < 200 || double.Parse(textBox1.Text) > 800 || textBox1.Text.Length > 8)
             {
                 textBox1.BackColor = System.Drawing.Color.Red;
-                
             }
             else
             {
@@ -44,23 +43,20 @@ namespace Hive_Kompas
                 rightToken++;
             }
 
-            if ((textBox2.Text == "") || Convert.ToInt32(textBox2.Text) < 300 || (Convert.ToInt32(textBox2.Text)) > 1800)
+            if ((textBox2.Text == "") || double.Parse(textBox2.Text) < 300 || (double.Parse(textBox2.Text)) > 1800 || textBox2.Text.Length > 8)
             {
                 textBox2.BackColor = System.Drawing.Color.Red;
-              
             }
             else
             {
                 textBox2.BackColor = System.Drawing.Color.Green;
                 rightToken++;
-              
             }
 
-            if ((textBox3.Text == "") || Convert.ToInt32(textBox3.Text) < 300 || (Convert.ToInt32(textBox3.Text)) > 1800)
+            if ((textBox3.Text == "") || double.Parse(textBox3.Text) < 300 || (double.Parse(textBox3.Text)) > 1800 || textBox3.Text.Length > 8)
             {
                 textBox3.BackColor = System.Drawing.Color.Red;
                 rightToken++;
-               
             }
             else
             {
@@ -68,22 +64,19 @@ namespace Hive_Kompas
                 rightToken++;             
             }
 
-            if ((textBox4.Text == "") || Convert.ToInt32(textBox4.Text) < 10 || (Convert.ToInt32(textBox4.Text)) > 100)
+            if ((textBox4.Text == "") || double.Parse(textBox4.Text) < 10 || (double.Parse(textBox4.Text)) > 100 || textBox4.Text.Length > 8)
             {
                 textBox4.BackColor = System.Drawing.Color.Red;
-                
             }
             else
             {
                 textBox4.BackColor = System.Drawing.Color.Green;
                 rightToken++;
-              
             }
 
-            if ((textBox5.Text == "") || Convert.ToInt32(textBox5.Text) < 50 || (Convert.ToInt32(textBox5.Text)) > 1000)
+            if ((textBox5.Text == "") || double.Parse(textBox5.Text) < 50 || (double.Parse(textBox5.Text)) > 1000 || textBox5.Text.Length > 8)
             {
-                textBox5.BackColor = System.Drawing.Color.Red;
-               
+                textBox5.BackColor = System.Drawing.Color.Red;               
             }
             else
             {
@@ -91,7 +84,7 @@ namespace Hive_Kompas
                 rightToken++;
             }
 
-            if ((textBox6.Text == "") || Convert.ToInt32(textBox6.Text) < 50 || (Convert.ToInt32(textBox6.Text)) > 1000)
+            if ((textBox6.Text == "") || double.Parse(textBox6.Text) < 50 || (double.Parse(textBox6.Text)) > 1000 || textBox6.Text.Length > 8)
             {
                 textBox6.BackColor = System.Drawing.Color.Red;
             }
@@ -101,7 +94,7 @@ namespace Hive_Kompas
                 rightToken++;
             }
 
-            if ((textBox7.Text == "") || Convert.ToInt32(textBox7.Text) < 50 || (Convert.ToInt32(textBox7.Text)) > 1000)
+            if ((textBox7.Text == "") || double.Parse(textBox7.Text) < 50 || (double.Parse(textBox7.Text)) > 1000 || textBox7.Text.Length > 8)
             {
                 textBox7.BackColor = System.Drawing.Color.Red;
             }
@@ -111,7 +104,7 @@ namespace Hive_Kompas
                 rightToken++;
             }
 
-            if ((textBox8.Text == "") || Convert.ToInt32(textBox8.Text) < 100 || (Convert.ToInt32(textBox8.Text)) > 350)
+            if ((textBox8.Text == "") || double.Parse(textBox8.Text) < 100 || (double.Parse(textBox8.Text)) > 350 || textBox8.Text.Length > 8)
             {
                 textBox8.BackColor = System.Drawing.Color.Red;
             }
@@ -131,6 +124,11 @@ namespace Hive_Kompas
             }
         }
 
+        private void textBox_LostFocus(object sender, EventArgs e)
+        {
+            validateAndSet_Values();
+        }
+
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             validateAndSet_Values();
@@ -145,7 +143,7 @@ namespace Hive_Kompas
         private void textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая в ASCII
             {
                 e.Handled = true;
             }

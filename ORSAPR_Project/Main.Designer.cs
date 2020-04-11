@@ -47,14 +47,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.RoofThicknessTextBox = new System.Windows.Forms.TextBox();
+            this.LheigthTextBox = new System.Windows.Forms.TextBox();
+            this.LwidthTextBox = new System.Windows.Forms.TextBox();
+            this.LlengthTextBox = new System.Windows.Forms.TextBox();
+            this.InLetDiamTextBox = new System.Windows.Forms.TextBox();
+            this.HwidthTextBox = new System.Windows.Forms.TextBox();
+            this.HlengthTextBox = new System.Windows.Forms.TextBox();
+            this.HheightTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,9 +62,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 13);
+            this.label1.Size = new System.Drawing.Size(324, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Для построения 3D модели улья, укажите параметры:";
             // 
@@ -95,18 +96,18 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.RoofThicknessTextBox);
+            this.groupBox1.Controls.Add(this.LheigthTextBox);
+            this.groupBox1.Controls.Add(this.LwidthTextBox);
+            this.groupBox1.Controls.Add(this.LlengthTextBox);
+            this.groupBox1.Controls.Add(this.InLetDiamTextBox);
+            this.groupBox1.Controls.Add(this.HwidthTextBox);
+            this.groupBox1.Controls.Add(this.HlengthTextBox);
+            this.groupBox1.Controls.Add(this.HheightTextBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(3, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 272);
+            this.groupBox1.Size = new System.Drawing.Size(352, 272);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры улья";
@@ -114,8 +115,9 @@
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(53, 245);
+            this.label18.Location = new System.Drawing.Point(6, 243);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(231, 13);
             this.label18.TabIndex = 25;
@@ -145,18 +147,18 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(230, 160);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 13);
+            this.label15.Size = new System.Drawing.Size(94, 13);
             this.label15.TabIndex = 22;
-            this.label15.Text = "(от 50 до 1000 мм)";
+            this.label15.Text = "(от 50 до 600 мм)";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(230, 134);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 13);
+            this.label14.Size = new System.Drawing.Size(94, 13);
             this.label14.TabIndex = 21;
-            this.label14.Text = "(от 100 до 1000 мм)";
+            this.label14.Text = "(от 50 до 600 мм)";
             // 
             // label13
             // 
@@ -257,77 +259,77 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Длина улья:";
             // 
-            // textBox8
+            // RoofThicknessTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(124, 209);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 9;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.RoofThicknessTextBox.Location = new System.Drawing.Point(124, 209);
+            this.RoofThicknessTextBox.Name = "RoofThicknessTextBox";
+            this.RoofThicknessTextBox.Size = new System.Drawing.Size(100, 20);
+            this.RoofThicknessTextBox.TabIndex = 9;
+            this.RoofThicknessTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.RoofThicknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox7
+            // LheigthTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(124, 183);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 8;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.LheigthTextBox.Location = new System.Drawing.Point(124, 183);
+            this.LheigthTextBox.Name = "LheigthTextBox";
+            this.LheigthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LheigthTextBox.TabIndex = 8;
+            this.LheigthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.LheigthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox6
+            // LwidthTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(124, 157);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 7;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.LwidthTextBox.Location = new System.Drawing.Point(124, 157);
+            this.LwidthTextBox.Name = "LwidthTextBox";
+            this.LwidthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LwidthTextBox.TabIndex = 7;
+            this.LwidthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.LwidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox5
+            // LlengthTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(124, 131);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 6;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.LlengthTextBox.Location = new System.Drawing.Point(124, 131);
+            this.LlengthTextBox.Name = "LlengthTextBox";
+            this.LlengthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LlengthTextBox.TabIndex = 6;
+            this.LlengthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.LlengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox4
+            // InLetDiamTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(124, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.InLetDiamTextBox.Location = new System.Drawing.Point(124, 105);
+            this.InLetDiamTextBox.Name = "InLetDiamTextBox";
+            this.InLetDiamTextBox.Size = new System.Drawing.Size(100, 20);
+            this.InLetDiamTextBox.TabIndex = 5;
+            this.InLetDiamTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.InLetDiamTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox3
+            // HwidthTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.HwidthTextBox.Location = new System.Drawing.Point(124, 79);
+            this.HwidthTextBox.Name = "HwidthTextBox";
+            this.HwidthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.HwidthTextBox.TabIndex = 4;
+            this.HwidthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.HwidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox2
+            // HlengthTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(124, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.HlengthTextBox.Location = new System.Drawing.Point(124, 53);
+            this.HlengthTextBox.Name = "HlengthTextBox";
+            this.HlengthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.HlengthTextBox.TabIndex = 3;
+            this.HlengthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.HlengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
-            // textBox1
+            // HheightTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.HheightTextBox.Location = new System.Drawing.Point(124, 27);
+            this.HheightTextBox.Name = "HheightTextBox";
+            this.HheightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.HheightTextBox.TabIndex = 2;
+            this.HheightTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.HheightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // button1
             // 
@@ -344,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 369);
+            this.ClientSize = new System.Drawing.Size(359, 371);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -365,14 +367,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox RoofThicknessTextBox;
+        private System.Windows.Forms.TextBox LheigthTextBox;
+        private System.Windows.Forms.TextBox LwidthTextBox;
+        private System.Windows.Forms.TextBox LlengthTextBox;
+        private System.Windows.Forms.TextBox InLetDiamTextBox;
+        private System.Windows.Forms.TextBox HwidthTextBox;
+        private System.Windows.Forms.TextBox HlengthTextBox;
+        private System.Windows.Forms.TextBox HheightTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;

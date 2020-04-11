@@ -25,7 +25,7 @@ namespace Hive_Kompas
         }
         public void CreateMain(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            double thickness = hiveParams.HiveLength;
+            double thickness = hiveParams.HiveWidth;
             ksEntity iSketch;
 
             ksSketchDefinition iDefinitionSketch;
@@ -38,8 +38,9 @@ namespace Hive_Kompas
             par1.ang = 0; //Угол ?
                 par1.x = 10;
                 par1.y = 10;
-                par1.width = hiveParams.HiveWidth;
-                par1.height = hiveParams.HiveHeight; // Больше похоже на ширину, нежели высоту.
+            // par1.width = hiveParams.HiveWidth;
+            par1.width = hiveParams.HiveLength;
+            par1.height = hiveParams.HiveHeight; // Больше похоже на ширину, нежели высоту.
                 par1.style = 1; // При нуле не видно деталь.
             iDocument2D.ksRectangle(par1);
 
@@ -50,7 +51,7 @@ namespace Hive_Kompas
         }
         public void CreateLeg1(ksPart iPart,KompasObject _kompas, HiveParams hiveParams)
         {
-            double thickness = hiveParams.LegLength;
+            double thickness = hiveParams.LegWidth;
             ksEntity iSketch;
 
             ksSketchDefinition iDefinitionSketch;
@@ -63,7 +64,8 @@ namespace Hive_Kompas
             par3.ang = 0; //Угол 
             par3.x = 10;
             par3.y = hiveParams.HiveHeight;
-            par3.width = hiveParams.LegWidth;  
+            //par3.width = hiveParams.LegWidth;  
+            par3.width = hiveParams.LegLength;
             par3.height = hiveParams.LegHeight; 
             par3.style = 1; 
             iDocument2D.ksRectangle(par3);
@@ -76,7 +78,8 @@ namespace Hive_Kompas
 
         public void CreateLeg2(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            double thickness = hiveParams.LegLength;
+            //double thickness = hiveParams.LegLength;
+            double thickness = hiveParams.LegWidth;
             ksEntity iSketch;
 
             ksSketchDefinition iDefinitionSketch;
@@ -87,9 +90,11 @@ namespace Hive_Kompas
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
             ksRectangleParam par4 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
             par4.ang = 0; //Угол
-            par4.x =(hiveParams.HiveLength - (hiveParams.LegLength )) +10 ;
+            par4.x =(hiveParams.HiveLength - (hiveParams.LegLength)) +10 ;
+           // par4.x = (hiveParams.HiveLength - (hiveParams.LegLength)) + 10; // Старый
             par4.y = hiveParams.HiveHeight;
-            par4.width = hiveParams.LegWidth;  
+            //par4.width = hiveParams.LegWidth;  
+            par4.width = hiveParams.LegLength;  
             par4.height = hiveParams.LegHeight; 
             par4.style = 1; 
             iDocument2D.ksRectangle(par4);
@@ -101,8 +106,10 @@ namespace Hive_Kompas
 
         public void CreateLeg3(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            double thickness = hiveParams.LegLength;
-            double offset = hiveParams.HiveWidth - hiveParams.LegWidth;
+            //double thickness = hiveParams.LegLength;
+            double thickness = hiveParams.LegWidth;
+            double offset = ((hiveParams.HiveWidth - hiveParams.LegWidth) );// -10; 
+            //double offset = hiveParams.HiveWidth - hiveParams.LegWidth; // Старый
             ksEntity iSketch;
 
             ksSketchDefinition iDefinitionSketch;
@@ -115,7 +122,8 @@ namespace Hive_Kompas
             par5.ang = 0; //Угол ?
             par5.x = 10;
             par5.y = hiveParams.HiveHeight;
-            par5.width = hiveParams.LegWidth; 
+            //par5.width = hiveParams.LegWidth +1000; 
+            par5.width = hiveParams.LegLength;
             par5.height = hiveParams.LegHeight; 
             par5.style = 1; 
             iDocument2D.ksRectangle(par5);
@@ -127,8 +135,9 @@ namespace Hive_Kompas
         }
         public void CreateLeg4(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
         {
-            double thickness = hiveParams.LegLength;
-            double offset = hiveParams.HiveLength - hiveParams.LegWidth;
+            double thickness = hiveParams.LegWidth;
+            //double offset = hiveParams.HiveLength - hiveParams.LegWidth;
+            double offset = ((hiveParams.HiveWidth - hiveParams.LegWidth));//- hiveParams.LegWidth);//-10;
             ksEntity iSketch;
             ksSketchDefinition iDefinitionSketch;
             CreateSketch(out iSketch, out iDefinitionSketch,offset);
@@ -137,11 +146,14 @@ namespace Hive_Kompas
             ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
             ksRectangleParam par6 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
             par6.ang = 0; //Угол 
+            //par6.x = (hiveParams.HiveLength - (hiveParams.LegLength/2)) + 10;
             par6.x = (hiveParams.HiveLength - (hiveParams.LegLength)) + 10;
+            // par6.x = (hiveParams.HiveLength - (hiveParams.LegLength)) + 10;
             par6.y = hiveParams.HiveHeight;
-            par6.width = hiveParams.LegWidth; 
+            //par6.width = hiveParams.LegWidth; 
+            par6.width = hiveParams.LegLength;
             par6.height = hiveParams.LegHeight; 
-            par6.style = 1; // При нуле не видно деталь.
+            par6.style = 1;
             iDocument2D.ksRectangle(par6);
 
             // Закончить редактировать эскиз
@@ -171,7 +183,8 @@ namespace Hive_Kompas
             par1.ang = 0; //Угол ?
             par1.x = 10 - 10   ;
             par1.y = 10;
-            par1.width = hiveParams.HiveWidth +20 ;
+            //par1.width = hiveParams.HiveWidth +20 ;
+            par1.width = hiveParams.HiveLength + 20;
             par1.height = thickness; // Больше похоже на ширину, нежели высоту.
             par1.style = 1; // При нуле не видно деталь.
             iDocument2D.ksRectangle(par1);
@@ -179,7 +192,7 @@ namespace Hive_Kompas
             // Закончить редактировать эскиз
             iDefinitionSketch.EndEdit();
 
-            ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength +20 , true);
+            ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth +20 , true);
          }
 
         public void CreateHoles(ksPart iPart, KompasObject _kompas, HiveParams hiveParams)
@@ -187,7 +200,8 @@ namespace Hive_Kompas
             //Подсчёт колличества этажей.
             int floorCount = (int)(hiveParams.HiveHeight / 300);
             // Смещение по оси Z
-            double offset = hiveParams.HiveLength + 20;
+            //double offset = hiveParams.HiveLength + 20;
+            double offset = hiveParams.HiveWidth + 20;
             // Радиус отверстий для пчёл.
             double radius = hiveParams.InletDiameters;
             ksEntity iSketch;
@@ -272,21 +286,23 @@ namespace Hive_Kompas
                     par7.ang = 0; //Угол 
                     par7.x = 10 - 10;
                     par7.y = (hiveParams.HiveHeight / 2);
-                    par7.width = hiveParams.HiveWidth + 20;
+                    //par7.width = hiveParams.HiveWidth + 20;
+                    par7.width = hiveParams.HiveLength + 20;
                     par7.height = thickness;
                     par7.style = 1;
                     iDocument2D.ksRectangle(par7);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
                     // Выдавливание.
-                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth + 20, true);
                     break;
                 case 3:
                     ksRectangleParam par8 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
                     par8.ang = 0; //Угол 
                     par8.x = 10 - 10;
                     par8.y = (hiveParams.HiveHeight / 6)*2;
-                    par8.width = hiveParams.HiveWidth + 20;
+                    //par8.width = hiveParams.HiveWidth + 20;
+                    par8.width = hiveParams.HiveLength + 20;
                     par8.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par8.style = 1;
                     iDocument2D.ksRectangle(par8);
@@ -294,14 +310,16 @@ namespace Hive_Kompas
                     iDocument2D.ksRectangle(par8);
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
-                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    //ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth + 20, true);
                     break;
                 case 4:
                     ksRectangleParam par9 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
                     par9.ang = 0; //Угол 
                     par9.x = 10 - 10;
                     par9.y = (hiveParams.HiveHeight / 8) * 2;
-                    par9.width = hiveParams.HiveWidth + 20;
+                    //par9.width = hiveParams.HiveWidth + 20;
+                    par9.width = hiveParams.HiveLength + 20;
                     par9.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par9.style = 1; // При нуле не видно деталь.
                     iDocument2D.ksRectangle(par9);
@@ -312,14 +330,16 @@ namespace Hive_Kompas
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
                     // Выдавливание
-                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    //                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth + 20, true);
                     break;
                 case 5:
                     ksRectangleParam par10 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
                     par10.ang = 0; //Угол 
                     par10.x = 10 - 10;
                     par10.y = (hiveParams.HiveHeight / 10) * 2;
-                    par10.width = hiveParams.HiveWidth + 20;
+                    //par10.width = hiveParams.HiveWidth + 20;
+                    par10.width = hiveParams.HiveLength + 20;
                     par10.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par10.style = 1; // При нуле не видно деталь.
                     iDocument2D.ksRectangle(par10);
@@ -333,14 +353,16 @@ namespace Hive_Kompas
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
 
-                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    //ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth + 20, true);
                     break;
                 case 6:
                     ksRectangleParam par11 = (ksRectangleParam)_kompas.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
                     par11.ang = 0; //Угол 
                     par11.x = 10 - 10;
                     par11.y = (hiveParams.HiveHeight / 12) * 2;
-                    par11.width = hiveParams.HiveWidth + 20;
+                    //par11.width = hiveParams.HiveWidth + 20;
+                    par11.width = hiveParams.HiveLength + 20;
                     par11.height = thickness; // Больше похоже на ширину, нежели высоту.
                     par11.style = 1; // При нуле не видно деталь.
                     iDocument2D.ksRectangle(par11);
@@ -355,7 +377,8 @@ namespace Hive_Kompas
                     // Закончить редактировать эскиз
                     iDefinitionSketch.EndEdit();
                     //Выдавливание
-                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    //ExctrusionSketch(iPart, iSketch, hiveParams.HiveLength + 20, true);
+                    ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth + 20, true);
                     break;
             }
         }

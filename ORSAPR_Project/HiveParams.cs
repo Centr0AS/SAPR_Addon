@@ -96,7 +96,7 @@ namespace Hive_Kompas
             get => _legLength;
             set
             {
-                if (value < 50 || value > 1000)
+                if (value < 50 || value > 600)
                 {
                     throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
                 }
@@ -108,7 +108,7 @@ namespace Hive_Kompas
             get => _legWidth;
             set
             {
-                if (value < 50 || value > 1000)
+                if (value < 50 || value > 600)
                 {
                     throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
                 }

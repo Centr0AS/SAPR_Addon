@@ -3,7 +3,7 @@ using Kompas6Constants;
 using Kompas6Constants3D;
 using KompasAPI7;
 
-namespace ORSAPR_Project
+namespace Hive_Kompas
 {
     class Builder
     {

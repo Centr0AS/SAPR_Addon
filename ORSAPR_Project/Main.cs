@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ORSAPR_Project
+namespace Hive_Kompas
     
 {
     public partial class Main : Form

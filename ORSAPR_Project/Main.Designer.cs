@@ -1,4 +1,4 @@
-﻿namespace ORSAPR_Project
+﻿namespace Hive_Kompas
 {
     partial class Main
     {

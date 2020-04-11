@@ -15,7 +15,7 @@ using Kompas6Constants3D;
 //using Kompas6Constants;
 
 
-namespace ORSAPR_Project
+namespace Hive_Kompas
 {
      class KompasConnector
     {

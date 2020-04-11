@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1022
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORSAPR_Project", "ORSAPR_Project\ORSAPR_Project.csproj", "{1242F8EE-325B-4512-8709-C45B996C8F36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hive_Kompas", "ORSAPR_Project\Hive_Kompas.csproj", "{1242F8EE-325B-4512-8709-C45B996C8F36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hive_Kompas.UnitTests", "Hive_Kompas.UnitTests\Hive_Kompas.UnitTests.csproj", "{F2B3637E-2501-4559-B46D-130F70887D5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1242F8EE-325B-4512-8709-C45B996C8F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1242F8EE-325B-4512-8709-C45B996C8F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1242F8EE-325B-4512-8709-C45B996C8F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2B3637E-2501-4559-B46D-130F70887D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2B3637E-2501-4559-B46D-130F70887D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2B3637E-2501-4559-B46D-130F70887D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B3637E-2501-4559-B46D-130F70887D5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

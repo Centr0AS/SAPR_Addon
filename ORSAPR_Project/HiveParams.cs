@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ORSAPR_Project
+namespace Hive_Kompas
 {
     class HiveParams
     {

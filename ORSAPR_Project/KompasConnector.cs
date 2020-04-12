@@ -10,7 +10,7 @@ namespace Hive_Kompas
     {
         // c помощью этого обьекта мы можем 
         // выбрать определенное окно приложения компас
-        public KompasObject _kompas = null;
+        public KompasObject kompas = null;
 
         // с помощью этого обьекта мы можем
         // создать 3Д документ для построения предметов
@@ -31,19 +31,19 @@ namespace Hive_Kompas
         {
             // если окно компаса не включено
             // создать обьект компаса (т.е. обьект будет в процессе но не виден)
-            if (_kompas == null)
+            if (kompas == null)
             {
                 Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
-                _kompas = (KompasObject)Activator.CreateInstance(t);
+                kompas = (KompasObject)Activator.CreateInstance(t);
             }
 
             // показать компас          
-            _kompas.Visible = true;
-            _kompas.ActivateControllerAPI();
+            kompas.Visible = true;
+            kompas.ActivateControllerAPI();
 
 
             // присвоить управление документами _doc3D
-            _doc3D = (ksDocument3D)_kompas.Document3D();
+            _doc3D = (ksDocument3D)kompas.Document3D();
 
             // создать документ
             _doc3D.Create(false/*invisible*/, true);

@@ -12,13 +12,13 @@ namespace Hive_Kompas
         public Main()
         {
             InitializeComponent();
-            autoFill();
+            AutoFill();
         }
         
         /// <summary>
         /// Функция, которая производит автозаполнение данных в поля.
         /// </summary>
-        private void autoFill()
+        private void AutoFill()
         {
             HheightTextBox.Text = "300";
             HlengthTextBox.Text = "300";
@@ -32,7 +32,7 @@ namespace Hive_Kompas
         /// <summary>
         /// Функция проверяет правильность введенных данных в поля, если же все данные верны то присваивает значения.
         /// </summary>
-        private void validateAndSet_Values()
+        private void ValidateAndSet_Values()
         {
             label18.Visible = true;
             button1.Enabled = false;
@@ -149,24 +149,24 @@ namespace Hive_Kompas
         /// <summary>
         /// Функция, которая является обработчиком события(срабатывает при изменение значения  в текстовом поле).
         /// </summary>
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            validateAndSet_Values();
+            ValidateAndSet_Values();
         }
 
         /// <summary>
         /// Обработчик кнопки "Построить."
         /// </summary>
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             kompasConnector = new KompasConnector(hiveParams);
             Builder builder = new Builder();
-            builder.Build(kompasConnector.iPart, kompasConnector._kompas, hiveParams);   
+            builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams);   
         }
         /// <summary>
         /// Обработчик, который ограничивает ввод символов в поля.
         /// </summary>
-        private void textbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
             if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая в ASCII

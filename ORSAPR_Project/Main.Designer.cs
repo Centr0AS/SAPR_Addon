@@ -265,8 +265,8 @@
             this.RoofThicknessTextBox.Name = "RoofThicknessTextBox";
             this.RoofThicknessTextBox.Size = new System.Drawing.Size(100, 20);
             this.RoofThicknessTextBox.TabIndex = 9;
-            this.RoofThicknessTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.RoofThicknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.RoofThicknessTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.RoofThicknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // LheigthTextBox
             // 
@@ -274,8 +274,8 @@
             this.LheigthTextBox.Name = "LheigthTextBox";
             this.LheigthTextBox.Size = new System.Drawing.Size(100, 20);
             this.LheigthTextBox.TabIndex = 8;
-            this.LheigthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.LheigthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.LheigthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.LheigthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // LwidthTextBox
             // 
@@ -283,8 +283,8 @@
             this.LwidthTextBox.Name = "LwidthTextBox";
             this.LwidthTextBox.Size = new System.Drawing.Size(100, 20);
             this.LwidthTextBox.TabIndex = 7;
-            this.LwidthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.LwidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.LwidthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.LwidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // LlengthTextBox
             // 
@@ -292,8 +292,8 @@
             this.LlengthTextBox.Name = "LlengthTextBox";
             this.LlengthTextBox.Size = new System.Drawing.Size(100, 20);
             this.LlengthTextBox.TabIndex = 6;
-            this.LlengthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.LlengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.LlengthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.LlengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // InLetDiamTextBox
             // 
@@ -301,8 +301,8 @@
             this.InLetDiamTextBox.Name = "InLetDiamTextBox";
             this.InLetDiamTextBox.Size = new System.Drawing.Size(100, 20);
             this.InLetDiamTextBox.TabIndex = 5;
-            this.InLetDiamTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.InLetDiamTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.InLetDiamTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.InLetDiamTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // HwidthTextBox
             // 
@@ -310,8 +310,8 @@
             this.HwidthTextBox.Name = "HwidthTextBox";
             this.HwidthTextBox.Size = new System.Drawing.Size(100, 20);
             this.HwidthTextBox.TabIndex = 4;
-            this.HwidthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.HwidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.HwidthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.HwidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // HlengthTextBox
             // 
@@ -319,8 +319,8 @@
             this.HlengthTextBox.Name = "HlengthTextBox";
             this.HlengthTextBox.Size = new System.Drawing.Size(100, 20);
             this.HlengthTextBox.TabIndex = 3;
-            this.HlengthTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.HlengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.HlengthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.HlengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // HheightTextBox
             // 
@@ -328,8 +328,8 @@
             this.HheightTextBox.Name = "HheightTextBox";
             this.HheightTextBox.Size = new System.Drawing.Size(100, 20);
             this.HheightTextBox.TabIndex = 2;
-            this.HheightTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.HheightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
+            this.HheightTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.HheightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             // 
             // button1
             // 
@@ -340,7 +340,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Построить";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Main
             // 

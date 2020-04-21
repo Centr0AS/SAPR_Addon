@@ -28,6 +28,7 @@ namespace Hive_Kompas
             CreateRoof(iPart, kompas, hiveparams);
             CreateHoles(iPart, kompas, hiveparams);
             CreateBorder(iPart, kompas, hiveparams);
+         
         }
         /// <summary>
         /// Функция выполняет построение основной части улья.
@@ -57,7 +58,7 @@ namespace Hive_Kompas
 
             ExctrusionSketch(iPart, iSketch, thickness, true);
         }
-
+       
         /// <summary>
         ///  Функция выполяет построение 1ой ножки улья.
         /// </summary>

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Hive_Kompas.UnitTests
 {
-    public class UnitTests
+    public class HiveParamsUnitTests
     {
         [Test(Description = "Позитивный тест геттера Height")]
         public void TestHeightGet_CorrectValue()

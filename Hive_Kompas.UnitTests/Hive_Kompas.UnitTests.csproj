@@ -52,13 +52,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ORSAPR_Project\Hive_Kompas.csproj">
-      <Project>{1242f8ee-325b-4512-8709-c45b996c8f36}</Project>
-      <Name>Hive_Kompas</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Hive_Kompas.Logic\Hive_Kompas.Logic.csproj">
+      <Project>{c44cc8bd-0d0e-4944-a773-c0611ac774ce}</Project>
+      <Name>Hive_Kompas.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

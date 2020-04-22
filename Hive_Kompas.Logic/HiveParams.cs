@@ -1,13 +1,15 @@
 ﻿using System;
 
-namespace Hive_Kompas
+namespace Hive_Kompas.Logic
 {
     /// <summary>
     /// Класс, который содержит в себе поля для параметров улья.
     /// </summary>
     public class HiveParams
     {
+        //TODO: Пробелы и хмл
         private double _hiveHeight;
+
         private double _hiveLength;
         private double _hiveWidth;
         private double _inletDiameters;

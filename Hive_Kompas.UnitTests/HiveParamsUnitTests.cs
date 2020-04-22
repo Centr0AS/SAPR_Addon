@@ -1,25 +1,35 @@
 ﻿using System;
+using Hive_Kompas.Logic;
 using NUnit.Framework;
 
 namespace Hive_Kompas.UnitTests
 {
     public class HiveParamsUnitTests
     {
+        private HiveParams hiveParams;
+        [SetUp]
+        public void SetUp()
+        {// TODO:один параметр на одну строчку
+            //TODO: удали везде повторение
+            hiveParams = new HiveParams(200, 
+                300,
+                300, 10, 50, 100, 100, 100);
+
+        }
         [Test(Description = "Позитивный тест геттера Height")]
         public void TestHeightGet_CorrectValue()
         {
             var expected = 300;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.HiveHeight = expected;
             var actual = hiveParams.HiveHeight;
             Assert.AreEqual(expected, actual, "Геттер HiveHeight возвращает неправильное значение.");
         }
 
+        //TODO: посмотри как у меня
         [Test(Description = "Негативный тест геттера Height")]
         public void TestHeightGet_BadValue()
         {
             var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             Assert.Throws<ArgumentException>(() => { hiveParams.HiveHeight = wrongHeight; }, "-");
         }
 

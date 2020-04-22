@@ -1,13 +1,15 @@
 ﻿using System;
+using Hive_Kompas.Logic;
 using Kompas6API5;
 using Kompas6Constants3D;
 
 
 
-namespace Hive_Kompas
+namespace Hive_Kompas.API
 {
-     class KompasConnector
+     public class KompasConnector
     {
+//TODO: ВСЕ ДОЛЖНО БЫТЬ XML
         // c помощью этого обьекта мы можем 
         // выбрать определенное окно приложения компас
         public KompasObject kompas = null;

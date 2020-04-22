@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hive_Kompas
+namespace Hive_Kompas.GUI
 {
     static class Program
     {

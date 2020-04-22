@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using Hive_Kompas.API;
+using Hive_Kompas.Logic;
 
-namespace Hive_Kompas
+namespace Hive_Kompas.GUI
     
 {
     public partial class Main : Form
@@ -160,6 +162,7 @@ namespace Hive_Kompas
         private void Button1_Click(object sender, EventArgs e)
         {
             kompasConnector = new KompasConnector(hiveParams);
+            
             Builder builder = new Builder();
             builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams);   
         }

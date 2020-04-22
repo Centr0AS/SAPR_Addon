@@ -1,4 +1,4 @@
-﻿namespace Hive_Kompas
+﻿namespace Hive_Kompas.GUI
 {
     partial class Main
     {

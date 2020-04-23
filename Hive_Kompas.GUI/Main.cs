@@ -31,6 +31,7 @@ namespace Hive_Kompas.GUI
             LheigthTextBox.Text = "50";
             RoofThicknessTextBox.Text = "5";
         }
+
         /// <summary>
         /// Функция проверяет правильность введенных данных в поля, если же все данные верны то присваивает значения.
         /// </summary>
@@ -38,8 +39,9 @@ namespace Hive_Kompas.GUI
         {
             label18.Visible = true;
             button1.Enabled = false;
-            // Переменная, которая ведет подсчёт правильно заполненых полей.
+
             int rightToken = 0;
+
             if ((HheightTextBox.Text == "") || double.Parse(HheightTextBox.Text) < 200 || double.Parse(HheightTextBox.Text) > 1800 || HheightTextBox.Text.Length > 8)
             {
                 HheightTextBox.BackColor = System.Drawing.Color.Red;
@@ -161,7 +163,7 @@ namespace Hive_Kompas.GUI
         /// </summary>
         private void Button1_Click(object sender, EventArgs e)
         {
-            kompasConnector = new KompasConnector(hiveParams);
+            kompasConnector = new KompasConnector();
             
             Builder builder = new Builder();
             builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams);   
@@ -172,7 +174,7 @@ namespace Hive_Kompas.GUI
         private void Textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая в ASCII
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) 
             {
                 e.Handled = true;
             }

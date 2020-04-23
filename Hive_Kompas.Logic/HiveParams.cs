@@ -7,7 +7,6 @@ namespace Hive_Kompas.Logic
     /// </summary>
     public class HiveParams
     {
-        //TODO: Пробелы и хмл
         private double _hiveHeight;
 
         private double _hiveLength;

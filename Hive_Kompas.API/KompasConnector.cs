@@ -7,6 +7,9 @@ using Kompas6Constants3D;
 
 namespace Hive_Kompas.API
 {
+    /// <summary>
+    /// Соединение с через API Kompas
+    /// </summary>
      public class KompasConnector
     {
 //TODO: ВСЕ ДОЛЖНО БЫТЬ XML

@@ -11,11 +11,17 @@ namespace Hive_Kompas.Logic
         private double _hiveHeight;
 
         private double _hiveLength;
+
         private double _hiveWidth;
+
         private double _inletDiameters;
+
         private double _legHeight;
+
         private double _legLength;
+
         private double _legWidth;
+
         private double _roofThickness;
 
         /// <summary>

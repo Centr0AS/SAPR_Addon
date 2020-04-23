@@ -9,14 +9,18 @@ namespace Hive_Kompas.UnitTests
         private HiveParams hiveParams;
         [SetUp]
         public void SetUp()
-        {// TODO:один параметр на одну строчку
-            //TODO: удали везде повторение
+        {
             hiveParams = new HiveParams(200, 
                 300,
-                300, 10, 50, 100, 100, 100);
+                300, 
+                10,
+                50,
+                100,
+                100,
+                100);
 
         }
-        [Test(Description = "Позитивный тест геттера Height")]
+        [Test(Description = "Проверка высоты улья")]
         public void TestHeightGet_CorrectValue()
         {
             var expected = 300;
@@ -25,138 +29,162 @@ namespace Hive_Kompas.UnitTests
             Assert.AreEqual(expected, actual, "Геттер HiveHeight возвращает неправильное значение.");
         }
 
-        //TODO: посмотри как у меня
-        [Test(Description = "Негативный тест геттера Height")]
-        public void TestHeightGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            Assert.Throws<ArgumentException>(() => { hiveParams.HiveHeight = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера Length")]
+        [Test(Description = "Проверка длины улья")]
         public void TestLengthGet_CorrectValue()
         {
             var expected = 400;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.HiveLength = expected;
             var actual = hiveParams.HiveLength;
-            Assert.AreEqual(expected, actual, "Геттер HiveLength возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера Length")]
-        public void TestLengthGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.HiveLength = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера Width")]
+        [Test(Description = "Проверка ширины улья")]
         public void TestWidthGet_CorrectValue()
         {
             var expected = 400;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.HiveWidth = expected;
             var actual = hiveParams.HiveWidth;
-            Assert.AreEqual(expected, actual, "Геттер HiveWidth возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера Width")]
-        public void TestWidthGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.HiveWidth = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера InLetDiameters")]
+        [Test(Description = "Проверка диаметра входных отверстий для пчёл")]
         public void TestInLetDiametersGet_CorrectValue()
         {
             var expected = 10;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.InletDiameters = expected;
             var actual = hiveParams.InletDiameters;
-            Assert.AreEqual(expected, actual, "Геттер InLetDiameters возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера InLetDiameters")]
-        public void TestInLetDiametersGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.InletDiameters = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера LegHeight")]
+        [Test(Description = "Проверка размера высоты ножек")]
         public void TestLegHeightGet_CorrectValue()
         {
             var expected = 400;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.LegHeight = expected;
             var actual = hiveParams.LegHeight;
-            Assert.AreEqual(expected, actual, "Геттер LegHeight возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера LegHeight")]
-        public void TestLegHeightGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.LegHeight = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера LegLength")]
+        [Test(Description = "Проверка размера длины ножек")]
         public void TestLegLengthGet_CorrectValue()
         {
             var expected = 400;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.LegLength = expected;
             var actual = hiveParams.LegLength;
-            Assert.AreEqual(expected, actual, "Геттер LegLength возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера LegLength")]
-        public void TestLegLengthGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.LegLength = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера LegWidth")]
+        [Test(Description = "Проверка размера ширины ножек")]
         public void TestLegWidthGet_CorrectValue()
         {
             var expected = 400;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.LegWidth = expected;
             var actual = hiveParams.LegWidth;
-            Assert.AreEqual(expected, actual, "Геттер LegWidth возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера LegWidth")]
-        public void TestLegWidthGet_BadValue()
-        {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.LegWidth = wrongHeight; }, "-");
-        }
-
-        [Test(Description = "Позитивный тест геттера RoofThickness")]
+        [Test(Description = "Проверка размера толщины крыши")]
         public void TestRoofThicknessGet_CorrectValue()
         {
             var expected = 100;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
             hiveParams.RoofThickness = expected;
             var actual = hiveParams.RoofThickness;
-            Assert.AreEqual(expected, actual, "Геттер RoofThickness возвращает неправильное значение.");
+            Assert.AreEqual(expected, actual, 
+                "Проверка на правильные значения");
         }
 
-        [Test(Description = "Негативный тест геттера RoofThickness")]
-        public void TestRoofThicknessGet_BadValue()
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+          TestName = "Присвоение меньшего числа - Высота улья")]
+        [TestCase(1801, "Исключение, если число больше граничных значений",
+          TestName = "Присвоение большего числа - Высота улья")]
+        public void TestBorderHeightSet_ArgumentException(int wrongParam, string message)
         {
-            var wrongHeight = 99999;
-            var hiveParams = new HiveParams(200, 300, 300, 10, 50, 100, 100, 100);
-            Assert.Throws<ArgumentException>(() => { hiveParams.RoofThickness = wrongHeight; }, "-");
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.HiveHeight = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+        TestName = "Присвоение меньшего числа - Длина улья")]
+        [TestCase(1801, "Исключение, если число больше граничных значений",
+        TestName = "Присвоение большего числа - Длина улья")]
+        public void TestBorderLengthSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.HiveLength = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+        TestName = "Присвоение меньшего числа - Ширина улья")]
+        [TestCase(1801, "Исключение, если число больше граничных значений",
+        TestName = "Присвоение большего числа - Ширина улья")]
+        public void TestBorderWidthSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.HiveWidth = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+        TestName = "Присвоение меньшего числа - Диаметр входных отверстий")]
+        [TestCase(101, "Исключение, если число больше граничных значений",
+        TestName = "Присвоение большего числа - Диаметр входных отверстий")]
+        public void TestBorderInLetSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.InletDiameters = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+        TestName = "Присвоение меньшего числа - Высота ножек")]
+        [TestCase(1001, "Исключение, если число больше граничных значений",
+        TestName = "Присвоение большего числа - Высота ножек")]
+        public void TestBorderLegHeightSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.LegHeight = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+      TestName = "Присвоение меньшего числа - Длина ножек")]
+        [TestCase(1001, "Исключение, если число больше граничных значений",
+      TestName = "Присвоение большего числа - Длина ножек")]
+        public void TestBorderLegLengthSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.LegLength = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+      TestName = "Присвоение меньшего числа - Ширина ножек")]
+        [TestCase(601, "Исключение, если число больше граничных значений",
+      TestName = "Присвоение большего числа - Ширина ножек")]
+        public void TestBorderLegWidthSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.LegWidth = wrongParam; },
+                message);
+        }
+
+        [TestCase(1, "Исключение, если число меньше граничных значений",
+      TestName = "Присвоение меньшего числа - Толщина крыши")]
+        [TestCase(101, "Исключение, если число больше граничных значений",
+      TestName = "Присвоение большего числа - Толщина крыши")]
+        public void TestBorderRoofThicknessSet_ArgumentException(int wrongParam, string message)
+        {
+            Assert.Throws<ArgumentException>(
+                () => { hiveParams.RoofThickness = wrongParam; },
+                message);
         }
     }
 }

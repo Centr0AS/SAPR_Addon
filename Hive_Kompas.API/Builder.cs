@@ -29,7 +29,7 @@ namespace Hive_Kompas.API
             CreateRoof(iPart, kompas, hiveparams);
             CreateHoles(iPart, kompas, hiveparams);
             CreateBorder(iPart, kompas, hiveparams);
-            //CreateLeftHoles(iPart, kompas, hiveparams);
+            CreateLeftHoles(iPart, kompas, hiveparams);
 
 
         }

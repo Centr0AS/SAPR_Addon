@@ -278,8 +278,7 @@ namespace Hive_Kompas.API
             }
             
             iDefinitionSketch.EndEdit();
-
-            
+   
             ksEntity entityCutExtr = 
                 (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
             ksCutExtrusionDefinition cutExtrDef = 

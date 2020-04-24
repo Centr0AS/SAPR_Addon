@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="KAPITypes">
       <HintPath>..\..\..\..\InstalledSoft\Kompas3D\SDK\Samples\CSharp\Common\KAPITypes.dll</HintPath>

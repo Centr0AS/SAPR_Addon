@@ -72,7 +72,7 @@ namespace Hive_Kompas.GUI
                 rightToken++;             
             }
 
-            if ((InLetDiamTextBox.Text == "") || double.Parse(InLetDiamTextBox.Text) < 10 || (double.Parse(InLetDiamTextBox.Text)) > 100 || InLetDiamTextBox.Text.Length > 8)
+            if ((InLetDiamTextBox.Text == "") || double.Parse(InLetDiamTextBox.Text) < 10 || (double.Parse(InLetDiamTextBox.Text)) > 75 || InLetDiamTextBox.Text.Length > 8)
             {
                 InLetDiamTextBox.BackColor = System.Drawing.Color.Red;
             }
@@ -112,7 +112,7 @@ namespace Hive_Kompas.GUI
                 rightToken++;
             }
 
-            if ((RoofThicknessTextBox.Text == "") || double.Parse(RoofThicknessTextBox.Text) < 5 || (double.Parse(RoofThicknessTextBox.Text)) > 100 || RoofThicknessTextBox.Text.Length > 8)
+            if ((RoofThicknessTextBox.Text == "") || double.Parse(RoofThicknessTextBox.Text) < 5 || (double.Parse(RoofThicknessTextBox.Text)) > 50 || RoofThicknessTextBox.Text.Length > 8)
             {
                 RoofThicknessTextBox.BackColor = System.Drawing.Color.Red;
             }

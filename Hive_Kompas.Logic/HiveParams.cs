@@ -89,9 +89,9 @@ namespace Hive_Kompas.Logic
             get => _inletDiameters;
             set
             {
-                if (value < 10 || value > 100)
+                if (value < 10 || value > 75)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 10 до 100");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 10 до 75");
                 }
 
                 _inletDiameters = value;
@@ -137,9 +137,9 @@ namespace Hive_Kompas.Logic
             get => _roofThickness;
             set
             {
-                if (value < 5 || value > 100)
+                if (value < 5 || value > 50)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 5 до 100");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 5 до 50");
                 }
 
                 _roofThickness = value;

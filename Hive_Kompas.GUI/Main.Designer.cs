@@ -129,9 +129,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(230, 212);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(88, 13);
+            this.label17.Size = new System.Drawing.Size(82, 13);
             this.label17.TabIndex = 24;
-            this.label17.Text = "(от 5 до 100 мм)";
+            this.label17.Text = "(от 5 до 50 мм)";
             // 
             // label16
             // 
@@ -165,9 +165,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(230, 108);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 13);
+            this.label13.Size = new System.Drawing.Size(88, 13);
             this.label13.TabIndex = 20;
-            this.label13.Text = "(от 10 до 100 мм)";
+            this.label13.Text = "(от 10 до 75 мм)";
             // 
             // label12
             // 

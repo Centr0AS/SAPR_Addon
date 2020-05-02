@@ -17,13 +17,13 @@ namespace Hive_Kompas.UnitTests
                 50,
                 100,
                 100,
-                100);
+                5);
 
         }
         [Test(Description = "Проверка высоты улья")]
         public void TestHeightGet_CorrectValue()
         {
-            var expected = 300;
+            var expected = 200;
             hiveParams.HiveHeight = expected;
             var actual = hiveParams.HiveHeight;
             Assert.AreEqual(expected, actual, "Геттер HiveHeight возвращает неправильное значение.");
@@ -92,7 +92,7 @@ namespace Hive_Kompas.UnitTests
         [Test(Description = "Проверка размера толщины крыши")]
         public void TestRoofThicknessGet_CorrectValue()
         {
-            var expected = 100;
+            var expected = 5;
             hiveParams.RoofThickness = expected;
             var actual = hiveParams.RoofThickness;
             Assert.AreEqual(expected, actual, 

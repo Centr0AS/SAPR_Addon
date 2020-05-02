@@ -15,7 +15,7 @@ namespace Hive_Kompas.API
         /// <param name="iPart"> интерфейс детали</param>
         /// <param name="kompas">  объект типа kompas</param>
         /// <param name="hiveparams"> класс, хранящий параметры улья</param>
-        public void Build(ksPart iPart, KompasObject kompas, HiveParams hiveparams)
+        public void Build(ksPart iPart, KompasObject kompas, HiveParams hiveparams, bool BackSide, bool LeftSide, bool RightSide)
         {
             this.iPart = iPart;
             CreateMain(iPart, kompas, hiveparams);
@@ -26,6 +26,15 @@ namespace Hive_Kompas.API
             CreateRoof(iPart, kompas, hiveparams);
             CreateHoles(iPart, kompas, hiveparams);
             CreateBorder(iPart, kompas, hiveparams);
+
+            if (BackSide)
+                CreateBackHoles(iPart, kompas, hiveparams);
+
+            if (LeftSide)
+                CreateLeftHoles(iPart, kompas, hiveparams);
+            
+            if(RightSide)
+                CreateRightHoles(iPart, kompas, hiveparams);
         }
 
         /// <summary>
@@ -286,11 +295,11 @@ namespace Hive_Kompas.API
 
             cutExtrDef.SetSketch(iSketch);   
 
-            cutExtrDef.directionType = (short)Direction_Type.dtNormal; //прямое направление
+            cutExtrDef.directionType = (short)Direction_Type.dtNormal;
             cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
             cutExtrDef.SetThinParam(false, 0, 0, 0);
 
-            entityCutExtr.Create(); // создадим операцию вырезание выдавливанием
+            entityCutExtr.Create(); 
         }
 
         /// <summary>
@@ -312,6 +321,7 @@ namespace Hive_Kompas.API
             switch (floorCount)
             {
                 case 1:
+                    iDefinitionSketch.EndEdit();
                     break;
                 case 2:
                     ksRectangleParam par7 =
@@ -411,6 +421,231 @@ namespace Hive_Kompas.API
             }
         }
 
+       /// <summary>
+       /// Выполняет построение отверстий с задней стороны
+       /// </summary>
+        public void CreateBackHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        {
+            int floorCount = (int)(hiveParams.HiveHeight / 300);
+
+            double offset = 20;
+
+            double radius = hiveParams.InletDiameters;
+
+            ksEntity iSketch;
+
+            ksSketchDefinition iDefinitionSketch;
+
+            CreateSketch(out iSketch, out iDefinitionSketch, offset);
+
+            ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
+
+            switch (floorCount)
+            {
+                case 1:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, hiveParams.HiveHeight / 2, radius, 1);
+                    break;
+                case 2:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 4), radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 4) * 3, radius, 1);
+                    break;
+                case 3:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 6), radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 6) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 6) * 5, radius, 1);
+                    break;
+                case 4:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 1, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 5, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 8) * 7, radius, 1);
+                    break;
+                case 5:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 1, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 5, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 7, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 10) * 9, radius, 1);
+                    break;
+                case 6:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 1, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 3, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 5, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 7, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 9, radius, 1);
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, (hiveParams.HiveHeight / 12) * 11, radius, 1);
+                    break;
+                default:
+                    iDocument2D.ksCircle((hiveParams.HiveLength / 2) + 10, hiveParams.HiveHeight / 2, radius, 1);
+                    break;
+            }
+
+            iDefinitionSketch.EndEdit();
+
+            ksEntity entityCutExtr =
+                (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
+            ksCutExtrusionDefinition cutExtrDef =
+                (ksCutExtrusionDefinition)entityCutExtr.GetDefinition();
+
+            cutExtrDef.SetSketch(iSketch);
+
+            cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+            cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
+            cutExtrDef.SetThinParam(false, 0, 0, 0);
+
+            entityCutExtr.Create(); 
+        }
+
+        /// <summary>
+        /// Выполняет построение отверстий с правой стороны
+        /// </summary>
+        public void CreateRightHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        {
+            int floorCount = (int)(hiveParams.HiveHeight / 300);
+
+            double offset = 10;
+
+            double radius = hiveParams.InletDiameters;
+
+            ksEntity iSketch;
+
+            ksSketchDefinition iDefinitionSketch;
+
+            OffsetCreateSketch(out iSketch, out iDefinitionSketch, offset);
+
+            ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
+
+            switch (floorCount)
+            {
+                case 1:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 2) , ((hiveParams.HiveWidth / 2)) *(-1), radius, 1);
+                    break;
+                case 2:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 4), ((hiveParams.HiveWidth / 2)) * (-1), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 4)) * 3, (((hiveParams.HiveWidth / 2)) * (-1) ), radius, 1);
+                    break;
+                case 3:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 6), ((hiveParams.HiveWidth / 2)) * (-1), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 6)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 6)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 4:
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 1, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 7, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 5:
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 1, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 7, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 9, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 6:
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 1, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 7, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 9, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 11, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                default:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 2), ((hiveParams.HiveWidth / 2)) * (-1), radius, 1);
+                    break;
+            }
+
+            iDefinitionSketch.EndEdit();
+
+            ksEntity entityCutExtr =
+                (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
+            ksCutExtrusionDefinition cutExtrDef =
+                (ksCutExtrusionDefinition)entityCutExtr.GetDefinition();
+
+            cutExtrDef.SetSketch(iSketch);
+
+            cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+            cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
+            cutExtrDef.SetThinParam(false, 0, 0, 0);
+
+            entityCutExtr.Create();
+        }
+
+        /// <summary>
+        /// Выполняет построение отверстий с левой стороны
+        /// </summary>
+        public void CreateLeftHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        {
+            int floorCount = (int)(hiveParams.HiveHeight / 300);
+
+            double offset = (hiveParams.HiveLength -10) *-1;
+
+            double radius = hiveParams.InletDiameters;
+
+            ksEntity iSketch;
+
+            ksSketchDefinition iDefinitionSketch;
+
+            OffsetCreateSketch(out iSketch, out iDefinitionSketch, offset);
+
+            ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
+
+            switch (floorCount)
+            {
+                case 1:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 2), ((hiveParams.HiveWidth / 2) * -1), radius, 1);
+                    break;
+                case 2:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 4), ((hiveParams.HiveWidth / 2)) * (-1), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 4)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 3:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 6), ((hiveParams.HiveWidth / 2)) * (-1), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 6)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 6)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 4:
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 1, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 8)) * 7, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 5:
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 1, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 7, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 10)) * 9, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                case 6:
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 1, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 3, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 5, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 7, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 9, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    iDocument2D.ksCircle(((hiveParams.HiveHeight / 12)) * 11, (((hiveParams.HiveWidth / 2)) * (-1)), radius, 1);
+                    break;
+                default:
+                    iDocument2D.ksCircle((hiveParams.HiveHeight / 2), ((hiveParams.HiveWidth / 2) * -1), radius, 1);
+                    break;
+            }
+
+            iDefinitionSketch.EndEdit();
+
+            ksEntity entityCutExtr =
+                (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
+            ksCutExtrusionDefinition cutExtrDef =
+                (ksCutExtrusionDefinition)entityCutExtr.GetDefinition();
+
+            cutExtrDef.SetSketch(iSketch);
+
+            cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+            cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
+            cutExtrDef.SetThinParam(false, 0, 0, 0);
+
+            entityCutExtr.Create(); 
+        }
+
         /// <summary>
         /// Создать эскиз
         /// </summary>
@@ -428,6 +663,37 @@ namespace Hive_Kompas.API
 
             // Настройки : начальная позиция, направление смещения, расстояние от плоскости, принять все настройки (create)
             iPlaneDefinition.SetPlane(iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ));
+            iPlaneDefinition.direction = true;
+            iPlaneDefinition.offset = offset;
+            iPlane.Create();
+            #endregion --------------------------------------------------
+
+            iSketch = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_sketch);
+
+            iDefinitionSketch = iSketch.GetDefinition();
+
+            iDefinitionSketch.SetPlane(iPlane);
+
+            iSketch.Create();
+        }
+
+        /// <summary>
+        /// Создание скетча с координатной сеткой YOZ
+        /// </summary>
+        /// <param name="iSketch">Эскиз</param>
+        /// <param name="iDefinitionSketch">Определение эскиза</param>
+        /// <param name="offset">Смещение от начальной плоскости</param>
+        private void OffsetCreateSketch(out ksEntity iSketch, out ksSketchDefinition iDefinitionSketch, double offset = 0)
+        {
+            #region Создание смещенную плоскость -------------------------
+            // интерфейс смещенной плоскости
+            ksEntity iPlane = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
+
+            // Получаем интрефейс настроек смещенной плоскости
+            ksPlaneOffsetDefinition iPlaneDefinition = (ksPlaneOffsetDefinition)iPlane.GetDefinition();
+
+            // Настройки : начальная позиция, направление смещения, расстояние от плоскости, принять все настройки (create)
+            iPlaneDefinition.SetPlane(iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ));
             iPlaneDefinition.direction = true;
             iPlaneDefinition.offset = offset;
             iPlane.Create();

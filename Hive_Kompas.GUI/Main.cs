@@ -163,10 +163,23 @@ namespace Hive_Kompas.GUI
         /// </summary>
         private void Button1_Click(object sender, EventArgs e)
         {
+            bool BackSide = false;
+            bool LeftSide = false;
+            bool RightSide = false;
+
             kompasConnector = new KompasConnector();
-            
+
+            if (BackSidecheckBox.Checked)
+            { BackSide = true; }
+
+            if (LeftSidecheckBox.Checked)
+            { LeftSide = true; }
+
+            if (RightSidecheckBox.Checked)
+            { RightSide = true; }
+
             Builder builder = new Builder();
-            builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams);   
+            builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams, BackSide, LeftSide, RightSide);   
         }
         /// <summary>
         /// Обработчик, который ограничивает ввод символов в поля.

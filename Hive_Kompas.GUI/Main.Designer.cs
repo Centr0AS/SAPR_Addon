@@ -56,7 +56,12 @@
             this.HlengthTextBox = new System.Windows.Forms.TextBox();
             this.HheightTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.LeftSidecheckBox = new System.Windows.Forms.CheckBox();
+            this.RightSidecheckBox = new System.Windows.Forms.CheckBox();
+            this.BackSidecheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -334,7 +339,7 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(117, 314);
+            this.button1.Location = new System.Drawing.Point(223, 344);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 45);
             this.button1.TabIndex = 3;
@@ -342,11 +347,54 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // LeftSidecheckBox
+            // 
+            this.LeftSidecheckBox.AutoSize = true;
+            this.LeftSidecheckBox.Location = new System.Drawing.Point(6, 46);
+            this.LeftSidecheckBox.Name = "LeftSidecheckBox";
+            this.LeftSidecheckBox.Size = new System.Drawing.Size(102, 17);
+            this.LeftSidecheckBox.TabIndex = 4;
+            this.LeftSidecheckBox.Text = "Левая сторона";
+            this.LeftSidecheckBox.UseVisualStyleBackColor = true;
+            // 
+            // RightSidecheckBox
+            // 
+            this.RightSidecheckBox.AutoSize = true;
+            this.RightSidecheckBox.Location = new System.Drawing.Point(6, 69);
+            this.RightSidecheckBox.Name = "RightSidecheckBox";
+            this.RightSidecheckBox.Size = new System.Drawing.Size(108, 17);
+            this.RightSidecheckBox.TabIndex = 5;
+            this.RightSidecheckBox.Text = "Правая сторона";
+            this.RightSidecheckBox.UseVisualStyleBackColor = true;
+            // 
+            // BackSidecheckBox
+            // 
+            this.BackSidecheckBox.AutoSize = true;
+            this.BackSidecheckBox.Location = new System.Drawing.Point(6, 23);
+            this.BackSidecheckBox.Name = "BackSidecheckBox";
+            this.BackSidecheckBox.Size = new System.Drawing.Size(107, 17);
+            this.BackSidecheckBox.TabIndex = 6;
+            this.BackSidecheckBox.Text = "Задняя сторона";
+            this.BackSidecheckBox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BackSidecheckBox);
+            this.groupBox2.Controls.Add(this.RightSidecheckBox);
+            this.groupBox2.Controls.Add(this.LeftSidecheckBox);
+            this.groupBox2.Location = new System.Drawing.Point(12, 313);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Дополнительные отверстия:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 371);
+            this.ClientSize = new System.Drawing.Size(345, 406);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -357,6 +405,8 @@
             this.Text = "Построить 3D модель улья в программе Kompas3D";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,6 +442,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox LeftSidecheckBox;
+        private System.Windows.Forms.CheckBox RightSidecheckBox;
+        private System.Windows.Forms.CheckBox BackSidecheckBox;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

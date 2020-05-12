@@ -7,7 +7,7 @@ namespace Hive_Kompas.API
 {
     public class Builder
     {
-        public ksPart iPart;
+       private ksPart iPart;
 
         /// <summary>
         /// Функция, которая выполняет построение всех деталей.

@@ -15,17 +15,17 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Объект Компас.
         /// </summary>
-        public KompasObject kompas = null;
+        public KompasObject kompas { get; set; }
 
         /// <summary>
         /// Документ компас3D.
         /// </summary>
-        private ksDocument3D _doc3D = null;
+        private ksDocument3D _doc3D ;
 
         /// <summary>
         /// Интерфейс компонента.
         /// </summary>
-        public ksPart iPart = null;
+        public ksPart iPart { get; set; }
 
         /// <summary>
         /// Соединение с САПР и передача параметров.

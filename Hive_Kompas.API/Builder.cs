@@ -232,9 +232,9 @@ namespace Hive_Kompas.API
         public void CreateHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
-        
-            double offset = hiveParams.HiveWidth + 20;
-            
+
+            double offset = hiveParams.HiveWidth;
+
             double radius = hiveParams.InletDiameters;
 
             ksEntity iSketch;
@@ -428,7 +428,7 @@ namespace Hive_Kompas.API
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 
-            double offset = 20;
+            double offset = 0;
 
             double radius = hiveParams.InletDiameters;
 
@@ -489,7 +489,7 @@ namespace Hive_Kompas.API
 
             cutExtrDef.SetSketch(iSketch);
 
-            cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+            cutExtrDef.directionType = (short)Direction_Type.dtReverse; 
             cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
             cutExtrDef.SetThinParam(false, 0, 0, 0);
 
@@ -503,7 +503,7 @@ namespace Hive_Kompas.API
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 
-            double offset = 10;
+            double offset = -10;
 
             double radius = hiveParams.InletDiameters;
 
@@ -578,7 +578,7 @@ namespace Hive_Kompas.API
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 
-            double offset = (hiveParams.HiveLength -10) *-1;
+            double offset = ((hiveParams.HiveLength +10)) * -1;
 
             double radius = hiveParams.InletDiameters;
 
@@ -639,7 +639,8 @@ namespace Hive_Kompas.API
 
             cutExtrDef.SetSketch(iSketch);
 
-            cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+            //cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+            cutExtrDef.directionType = (short)Direction_Type.dtReverse;
             cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
             cutExtrDef.SetThinParam(false, 0, 0, 0);
 

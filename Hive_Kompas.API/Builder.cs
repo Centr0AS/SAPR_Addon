@@ -40,7 +40,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция выполняет построение основной части улья.
         /// </summary>
-        public void CreateMain(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateMain(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double thickness = hiveParams.HiveWidth;
 
@@ -70,7 +70,7 @@ namespace Hive_Kompas.API
         /// <summary>
         ///  Функция выполяет построение 1ой ножки улья.
         /// </summary>
-        public void CreateLeg1(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateLeg1(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double thickness = hiveParams.LegWidth;
 
@@ -100,7 +100,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция выполняет построение 2й ножки улья.
         /// </summary>
-        public void CreateLeg2(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateLeg2(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double thickness = hiveParams.LegWidth;
 
@@ -133,7 +133,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция выполняет построение 3ей ножки улья
         /// </summary>
-        public void CreateLeg3(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateLeg3(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double thickness = hiveParams.LegWidth;
 
@@ -165,7 +165,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция выполняет построение 4ой ножки улья
         /// </summary>
-        public void CreateLeg4(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateLeg4(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double thickness = hiveParams.LegWidth;
 
@@ -195,7 +195,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция выполняет построение крыши улья.
         /// </summary>
-        public void CreateRoof(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateRoof(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double offset = -10;
 
@@ -229,7 +229,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция создает отверстия в улье для пчёл
         /// </summary>
-        public void CreateHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 
@@ -305,7 +305,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Функция создает дополнительные крыши для этажей.
         /// </summary>
-        public void CreateBorder(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateBorder(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             double offset = -10;
             double thickness = hiveParams.RoofThickness;
@@ -424,7 +424,7 @@ namespace Hive_Kompas.API
        /// <summary>
        /// Выполняет построение отверстий с задней стороны
        /// </summary>
-        public void CreateBackHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateBackHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 
@@ -499,7 +499,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Выполняет построение отверстий с правой стороны
         /// </summary>
-        public void CreateRightHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateRightHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 
@@ -574,7 +574,7 @@ namespace Hive_Kompas.API
         /// <summary>
         /// Выполняет построение отверстий с левой стороны
         /// </summary>
-        public void CreateLeftHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
+        private void CreateLeftHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
             int floorCount = (int)(hiveParams.HiveHeight / 300);
 

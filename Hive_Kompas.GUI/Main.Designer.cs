@@ -112,7 +112,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(3, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(344, 272);
+            this.groupBox1.Size = new System.Drawing.Size(344, 260);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры улья";
@@ -339,7 +339,7 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(223, 344);
+            this.button1.Location = new System.Drawing.Point(223, 333);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 45);
             this.button1.TabIndex = 3;
@@ -382,7 +382,7 @@
             this.groupBox2.Controls.Add(this.BackSidecheckBox);
             this.groupBox2.Controls.Add(this.RightSidecheckBox);
             this.groupBox2.Controls.Add(this.LeftSidecheckBox);
-            this.groupBox2.Location = new System.Drawing.Point(12, 313);
+            this.groupBox2.Location = new System.Drawing.Point(12, 302);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 100);
             this.groupBox2.TabIndex = 26;
@@ -393,7 +393,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 406);
+            this.ClientSize = new System.Drawing.Size(345, 405);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);

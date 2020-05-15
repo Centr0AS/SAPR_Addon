@@ -113,9 +113,10 @@ namespace Hive_Kompas.Logic
             get => _legLength;
             set
             {
-                if (value < 50 || value > 600)
+                if (value < 50 || value > 600 || (value - 1) >= _hiveLength)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 600");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 600 " +
+                        "длина ножек должна быть меньше в 3 раза чем длина улья");
                 }
 
                 _legLength = value;
@@ -125,9 +126,10 @@ namespace Hive_Kompas.Logic
             get => _legWidth;
             set
             {
-                if (value < 50 || value > 600)
+                if (value < 50 || value > 600 || (value - 1) >= _hiveWidth)
                 {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 600");
+                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 600 " +
+                        "ширина ножек должна быть меньше в 3 раза чем ширина улья");
                 }
 
                 _legWidth = value;

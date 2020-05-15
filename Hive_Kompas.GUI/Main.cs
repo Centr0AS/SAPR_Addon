@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Hive_Kompas.API;
 using Hive_Kompas.Logic;
@@ -33,121 +35,67 @@ namespace Hive_Kompas.GUI
         }
 
         /// <summary>
-        /// Функция проверяет правильность введенных данных в поля, если же все данные верны то присваивает значения.
+        /// Проверяет правильность введенных данных в поля, если же все данные верны то присваивает значения.
         /// </summary>
         private void ValidateAndSet_Values()
         {
             label18.Visible = true;
             button1.Enabled = false;
 
-            int rightToken = 0;
+            List<TextBox> inputList = new List<TextBox>();
+            inputList.AddRange(new TextBox[] 
+            { HheightTextBox, HlengthTextBox, HwidthTextBox, InLetDiamTextBox, LlengthTextBox,
+            LwidthTextBox, LheigthTextBox, RoofThicknessTextBox});
+            List<double> minInputList = new List<double>();
+            minInputList.AddRange(new double[] { 200, 300, 300, 10, 50, 50, 50, 5 });
+            List<double> maxInputList = new List<double>();
+            maxInputList.AddRange(new double[] { 1800, 1800, 1800, 75, 600, 600, 1000, 50 });
 
-            if ((HheightTextBox.Text == "") || double.Parse(HheightTextBox.Text) < 200 || double.Parse(HheightTextBox.Text) > 1800 || HheightTextBox.Text.Length > 8)
-            {
-                HheightTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                HheightTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
+            bool correctInput = false;
 
-            if ((HlengthTextBox.Text == "") || double.Parse(HlengthTextBox.Text) < 300 || (double.Parse(HlengthTextBox.Text)) > 1800 || HlengthTextBox.Text.Length > 8)
-            {
-                HlengthTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                HlengthTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
-
-            if ((HwidthTextBox.Text == "") || double.Parse(HwidthTextBox.Text) < 300 || (double.Parse(HwidthTextBox.Text)) > 1800 || HwidthTextBox.Text.Length > 8)
-            {
-                HwidthTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                HwidthTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;             
-            }
-
-            if ((InLetDiamTextBox.Text == "") || double.Parse(InLetDiamTextBox.Text) < 10 || (double.Parse(InLetDiamTextBox.Text)) > 75 || InLetDiamTextBox.Text.Length > 8)
-            {
-                InLetDiamTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                InLetDiamTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
-
-            if ((LlengthTextBox.Text == "") || double.Parse(LlengthTextBox.Text) < 50 || (double.Parse(LlengthTextBox.Text)) > 600 || LlengthTextBox.Text.Length > 8)
-            {
-                LlengthTextBox.BackColor = System.Drawing.Color.Red;               
-            }
-            else
-            {
-                LlengthTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
-
-            if ((LwidthTextBox.Text == "") || double.Parse(LwidthTextBox.Text) < 50 || (double.Parse(LwidthTextBox.Text)) > 600 || LwidthTextBox.Text.Length > 8)
-            {
-                LwidthTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                LwidthTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
-
-            if ((LheigthTextBox.Text == "") || double.Parse(LheigthTextBox.Text) < 50 || (double.Parse(LheigthTextBox.Text)) > 1000 || LheigthTextBox.Text.Length > 8)
-            {
-                LheigthTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                LheigthTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
-
-            if ((RoofThicknessTextBox.Text == "") || double.Parse(RoofThicknessTextBox.Text) < 5 || (double.Parse(RoofThicknessTextBox.Text)) > 50 || RoofThicknessTextBox.Text.Length > 8)
-            {
-                RoofThicknessTextBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                RoofThicknessTextBox.BackColor = System.Drawing.Color.Green;
-                rightToken++;
-            }
-
-            if (rightToken == 8)
-            {
-                if ((double.Parse(LlengthTextBox.Text) - 1) >= (double.Parse(HlengthTextBox.Text) / 3))
+             for (int j = 0; j != 9; j++)
+             {
+                int i = 0;
+                for (i = 0; i != 8; i++)
                 {
-                    label18.Visible = true;
-                    label18.Text = "Длина ножек должны быть в 3 раза меньше, чем у улья!";
-                    LlengthTextBox.BackColor = System.Drawing.Color.Red;
-                    rightToken = 0;
+                    if ((inputList[i].Text == "") || double.Parse(inputList[i].Text) < minInputList[i] || double.Parse(inputList[i].Text) > maxInputList[i] || inputList[i].Text.Length > 8)
+                    {
+                        inputList[i].BackColor = System.Drawing.Color.Red;
+                        label18.Visible = true;
+                        break;
+                    }
+                    else
+                    {
+                        inputList[i].BackColor = System.Drawing.Color.Green;
+                        correctInput = true;
+                        label18.Visible = false;
+                    }
                 }
-                else if ((double.Parse(LwidthTextBox.Text)) - 1 >= (double.Parse(HwidthTextBox.Text)) / 3)
+                if (i == 8)
                 {
-                    label18.Visible = true;
-                    label18.Text = "Ширина ножек должны быть в 3 раза меньше, чем у улья!";
-                    LwidthTextBox.BackColor = System.Drawing.Color.Red;
-                    rightToken = 0;
+                    if ((double.Parse(LlengthTextBox.Text) - 1) >= (double.Parse(HlengthTextBox.Text) / 3))
+                    {
+                        label18.Visible = true;
+                        label18.Text = "Длина ножек должны быть в 3 раза меньше, чем у улья!";
+                        LlengthTextBox.BackColor = System.Drawing.Color.Red;
+                    }
+                    else if ((double.Parse(LwidthTextBox.Text)) - 1 >= (double.Parse(HwidthTextBox.Text)) / 3)
+                    {
+                        label18.Visible = true;
+                        label18.Text = "Ширина ножек должны быть в 3 раза меньше, чем у улья!";
+                        LwidthTextBox.BackColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        button1.Enabled = true;
+                        hiveParams = new HiveParams(Convert.ToDouble(HheightTextBox.Text), Convert.ToDouble(HlengthTextBox.Text), Convert.ToDouble(HwidthTextBox.Text),
+                        Convert.ToDouble(InLetDiamTextBox.Text), Convert.ToDouble(LheigthTextBox.Text), Convert.ToDouble(LlengthTextBox.Text),
+                        Convert.ToDouble(LwidthTextBox.Text), Convert.ToDouble(RoofThicknessTextBox.Text));
+                        label18.Visible = false;
+                        label18.Text = "Проверьте правильность введёных данных!";
+                    }
                 }
-                else
-                { 
-                    button1.Enabled = true;
-                    hiveParams = new HiveParams(Convert.ToDouble(HheightTextBox.Text), Convert.ToDouble(HlengthTextBox.Text), Convert.ToDouble(HwidthTextBox.Text),
-                    Convert.ToDouble(InLetDiamTextBox.Text), Convert.ToDouble(LheigthTextBox.Text), Convert.ToDouble(LlengthTextBox.Text),
-                    Convert.ToDouble(LwidthTextBox.Text), Convert.ToDouble(RoofThicknessTextBox.Text));
-                    label18.Visible = false;
-                    label18.Text = "Проверьте правильность введёных данных!";
-                }
-            }
+             }
         }
 
         /// <summary>

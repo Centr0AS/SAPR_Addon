@@ -72,7 +72,7 @@ namespace Hive_Kompas.UnitTests
         [Test(Description = "Проверка размера длины ножек")]
         public void TestLegLengthGet_CorrectValue()
         {
-            var expected = 400;
+            var expected = 50;
             hiveParams.LegLength = expected;
             var actual = hiveParams.LegLength;
             Assert.AreEqual(expected, actual, 
@@ -82,7 +82,7 @@ namespace Hive_Kompas.UnitTests
         [Test(Description = "Проверка размера ширины ножек")]
         public void TestLegWidthGet_CorrectValue()
         {
-            var expected = 400;
+            var expected = 50;
             hiveParams.LegWidth = expected;
             var actual = hiveParams.LegWidth;
             Assert.AreEqual(expected, actual, 

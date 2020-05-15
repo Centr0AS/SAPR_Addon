@@ -43,16 +43,22 @@ namespace Hive_Kompas.GUI
             label18.Visible = true;
             button1.Enabled = false;
 
-            List<TextBox> inputList = new List<TextBox>();
+            List<TextBox> TextBoxList = new List<TextBox>();
 
-            inputList.AddRange(new TextBox[]
-            { HheightTextBox, HlengthTextBox, HwidthTextBox, InLetDiamTextBox, LlengthTextBox,
-            LwidthTextBox, LheigthTextBox, RoofThicknessTextBox});
+            TextBoxList.AddRange(new TextBox[]
+            { HheightTextBox,
+              HlengthTextBox,
+              HwidthTextBox,
+              InLetDiamTextBox,
+              LlengthTextBox,
+              LwidthTextBox,
+              LheigthTextBox,
+              RoofThicknessTextBox });
 
-            List<double> minInputList = new List<double>();
-            minInputList.AddRange(new double[] { 200, 300, 300, 10, 50, 50, 50, 5 });
-            List<double> maxInputList = new List<double>();
-            maxInputList.AddRange(new double[] { 1800, 1800, 1800, 75, 600, 600, 1000, 50 });
+            List<double> MinInputList = new List<double>();
+            MinInputList.AddRange(new double[] { 200, 300, 300, 10, 50, 50, 50, 5 });
+            List<double> MaxInputList = new List<double>();
+            MaxInputList.AddRange(new double[] { 1800, 1800, 1800, 75, 600, 600, 1000, 50 });
 
 
              for (int j = 0; j != 9; j++)
@@ -60,15 +66,17 @@ namespace Hive_Kompas.GUI
                 int i = 0;
                 for (i = 0; i != 8; i++)
                 {
-                    if ((inputList[i].Text == "") || double.Parse(inputList[i].Text) < minInputList[i] || double.Parse(inputList[i].Text) > maxInputList[i] || inputList[i].Text.Length > 8)
+                    double checkValue = double.Parse(TextBoxList[i].Text);
+                    if ((TextBoxList[i].Text == "") || checkValue < MinInputList[i] ||
+                         checkValue > MaxInputList[i] || TextBoxList[i].Text.Length > 8)
                     {
-                        inputList[i].BackColor = System.Drawing.Color.Red;
+                        TextBoxList[i].BackColor = System.Drawing.Color.Red;
                         label18.Visible = true;
                         break;
                     }
                     else
                     {
-                        inputList[i].BackColor = System.Drawing.Color.Green;
+                        TextBoxList[i].BackColor = System.Drawing.Color.Green;
                         label18.Visible = false;
                     }
                 }

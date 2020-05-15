@@ -51,58 +51,54 @@ namespace Hive_Kompas.GUI
               LlengthTextBox,
               LwidthTextBox,
               LheigthTextBox,
-              RoofThicknessTextBox });
+              RoofThicknessTextBox
+            });
 
             List<double> MinInputList = new List<double>();
             MinInputList.AddRange(new double[] { 200, 300, 300, 10, 50, 50, 50, 5 });
             List<double> MaxInputList = new List<double>();
             MaxInputList.AddRange(new double[] { 1800, 1800, 1800, 75, 600, 600, 1000, 50 });
-
-
-             for (int j = 0; j != 9; j++)
-             {
-                int i = 0;
-                for (i = 0; i != 8; i++)
+            int i = 0;
+            for (i = 0; i != 8; i++)
+            {
+                if ((TextBoxList[i].Text == "") || double.Parse(TextBoxList[i].Text) < MinInputList[i] ||
+                    double.Parse(TextBoxList[i].Text) > MaxInputList[i] || TextBoxList[i].Text.Length > 8)
                 {
-                    double checkValue = double.Parse(TextBoxList[i].Text);
-                    if ((TextBoxList[i].Text == "") || checkValue < MinInputList[i] ||
-                         checkValue > MaxInputList[i] || TextBoxList[i].Text.Length > 8)
-                    {
-                        TextBoxList[i].BackColor = System.Drawing.Color.Red;
-                        label18.Visible = true;
-                        break;
-                    }
-                    else
-                    {
-                        TextBoxList[i].BackColor = System.Drawing.Color.Green;
-                        label18.Visible = false;
-                    }
+                    TextBoxList[i].BackColor = System.Drawing.Color.Red;
+                    label18.Visible = true;
+                    break;
                 }
-                if (i == 8)
+                else
                 {
-                    if ((double.Parse(LlengthTextBox.Text) - 1) >= (double.Parse(HlengthTextBox.Text) / 3))
-                    {
-                        label18.Visible = true;
-                        label18.Text = "Длина ножек должны быть в 3 раза меньше, чем у улья!";
-                        LlengthTextBox.BackColor = System.Drawing.Color.Red;
-                    }
-                    else if ((double.Parse(LwidthTextBox.Text)) - 1 >= (double.Parse(HwidthTextBox.Text)) / 3)
-                    {
-                        label18.Visible = true;
-                        label18.Text = "Ширина ножек должны быть в 3 раза меньше, чем у улья!";
-                        LwidthTextBox.BackColor = System.Drawing.Color.Red;
-                    }
-                    else
-                    {
-                        button1.Enabled = true;
-                        hiveParams = new HiveParams(Convert.ToDouble(HheightTextBox.Text), Convert.ToDouble(HlengthTextBox.Text), Convert.ToDouble(HwidthTextBox.Text),
-                        Convert.ToDouble(InLetDiamTextBox.Text), Convert.ToDouble(LheigthTextBox.Text), Convert.ToDouble(LlengthTextBox.Text),
-                        Convert.ToDouble(LwidthTextBox.Text), Convert.ToDouble(RoofThicknessTextBox.Text));
-                        label18.Visible = false;
-                        label18.Text = "Проверьте правильность введёных данных!";
-                    }
+                    TextBoxList[i].BackColor = System.Drawing.Color.Green;
+                    label18.Visible = false;
                 }
-             }
+            }
+            if (i == 8)
+            {
+                if ((double.Parse(LlengthTextBox.Text) - 1) >= (double.Parse(HlengthTextBox.Text) / 3))
+                {
+                    label18.Visible = true;
+                    label18.Text = "Длина ножек должны быть в 3 раза меньше, чем у улья!";
+                    LlengthTextBox.BackColor = System.Drawing.Color.Red;
+                }
+                else if ((double.Parse(LwidthTextBox.Text)) - 1 >= (double.Parse(HwidthTextBox.Text)) / 3)
+                {
+                    label18.Visible = true;
+                    label18.Text = "Ширина ножек должны быть в 3 раза меньше, чем у улья!";
+                    LwidthTextBox.BackColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    button1.Enabled = true;
+                    hiveParams = new HiveParams(Convert.ToDouble(HheightTextBox.Text), Convert.ToDouble(HlengthTextBox.Text), Convert.ToDouble(HwidthTextBox.Text),
+                    Convert.ToDouble(InLetDiamTextBox.Text), Convert.ToDouble(LheigthTextBox.Text), Convert.ToDouble(LlengthTextBox.Text),
+                    Convert.ToDouble(LwidthTextBox.Text), Convert.ToDouble(RoofThicknessTextBox.Text));
+                    label18.Visible = false;
+                    label18.Text = "Проверьте правильность введёных данных!";
+                }
+            }
+             
         }
 
         /// <summary>

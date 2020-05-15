@@ -47,6 +47,7 @@ namespace Hive_Kompas.API
             }
 
             kompas.Visible = true;
+
             kompas.ActivateControllerAPI();
 
             _doc3D = (ksDocument3D)kompas.Document3D();
@@ -54,6 +55,7 @@ namespace Hive_Kompas.API
             _doc3D.Create(false, true);
 
             iPart = (ksPart)_doc3D.GetPart((short)Part_Type.pTop_Part);
+           
         }
 
     }

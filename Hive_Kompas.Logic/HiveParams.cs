@@ -58,8 +58,8 @@ namespace Hive_Kompas.Logic
         /// <param name="legLength"> Длина ножек улья</param>
         /// <param name="legWidth"> Ширина ножек улья</param>
         /// <param name="roofThickness"> Толщина крыши</param>
-        public HiveParams(double hiveHeight, double hiveLength, double hiveWidth, double inletDiameters, double legHeight, double legLength,
-            double legWidth, double roofThickness)
+        public HiveParams(double hiveHeight, double hiveLength, double hiveWidth, double inletDiameters, double legHeight,
+            double legLength, double legWidth, double roofThickness)
         {
             HiveHeight = hiveHeight;
             HiveLength = hiveLength;

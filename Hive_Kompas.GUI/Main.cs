@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Hive_Kompas.API;
 using Hive_Kompas.Logic;
@@ -43,9 +44,19 @@ namespace Hive_Kompas.GUI
             button1.Enabled = false;
 
             List<TextBox> inputList = new List<TextBox>();
-            inputList.AddRange(new TextBox[] 
+
+            //foreach (Control x in this.Controls)
+            //{
+            //    if (x is TextBox)
+            //    {
+            //        // ((TextBox)x).Text = String.Empty;
+            //        inputList.AddRange(new TextBox[] { (TextBox)x });
+            //    }
+            //}
+            inputList.AddRange(new TextBox[]
             { HheightTextBox, HlengthTextBox, HwidthTextBox, InLetDiamTextBox, LlengthTextBox,
             LwidthTextBox, LheigthTextBox, RoofThicknessTextBox});
+
             List<double> minInputList = new List<double>();
             minInputList.AddRange(new double[] { 200, 300, 300, 10, 50, 50, 50, 5 });
             List<double> maxInputList = new List<double>();

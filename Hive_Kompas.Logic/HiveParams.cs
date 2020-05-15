@@ -7,25 +7,49 @@ namespace Hive_Kompas.Logic
     /// </summary>
     public class HiveParams
     {
+        /// <summary>
+        /// Высота улья.
+        /// </summary>
         private double _hiveHeight;
 
+        /// <summary>
+        /// Длина улья.
+        /// </summary>
         private double _hiveLength;
 
+        /// <summary>
+        /// Ширина улья.
+        /// </summary>
         private double _hiveWidth;
 
+        /// <summary>
+        /// Диаметр отверстий для пчёл.
+        /// </summary>
         private double _inletDiameters;
 
+        /// <summary>
+        /// Высота ножки улья.
+        /// </summary>
         private double _legHeight;
 
+        /// <summary>
+        /// Длина ножки улья.
+        /// </summary>
         private double _legLength;
 
+        /// <summary>
+        /// Ширина ножки улья.
+        /// </summary>
         private double _legWidth;
 
+        /// <summary>
+        /// Толщина крыши.
+        /// </summary>
         private double _roofThickness;
 
-        /// <summary>
-        /// Конструктор класса HiveParams
-        /// </summary>
+        ///// <summary>
+        ///// Конструктор класса HiveParams
+        ///// </summary>
         /// <param name="hiveHeight"> Высота улья</param>
         /// <param name="hiveLength"> Длина улья</param>
         /// <param name="hiveWidth"> Ширина улья</param>
@@ -47,70 +71,98 @@ namespace Hive_Kompas.Logic
             RoofThickness = roofThickness;
         }
 
+        //public HiveParams_defaultValues()
+        //{
+        //    HiveHeight = 300;
+        //    HiveLength = 300;
+        //    HiveWidth = 300;
+        //    InletDiameters = 10;
+        //    LegHeight = 100;
+        //    LegLength = 50;
+        //    LegWidth = 50;
+        //    RoofThickness = 5;
+        //}
+
         //Property;
 
-        public double HiveHeight {
+        /// <summary>
+        /// Высота улья.
+        /// </summary>
+        public double HiveHeight
+        {
             get => _hiveHeight;
+
             set
             {
-                if (value < 200 || value > 1800)
-                {
-                    throw new ArgumentException("Значение должно находиться в диапазоне от 200 до 1800");
-                }
-
+               SetParams(200, 1800, value);
                 _hiveHeight = value;
             }
         }
-        public double HiveLength {
+
+        /// <summary>
+        /// Длина улья.
+        /// </summary>
+        public double HiveLength
+        {
             get => _hiveLength;
+
             set
             {
-                if (value < 300 || value > 1800)
-                {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 300 до 1800");
-                }
-
+                SetParams(300, 1800, value);
                 _hiveLength = value;
             }
         }
-        public double HiveWidth {
+
+        /// <summary>
+        /// Ширина улья.
+        /// </summary>
+        public double HiveWidth
+        {
             get => _hiveWidth;
+
             set
             {
-                if (value < 300 || value > 1800)
-                {
-                   throw new ArgumentException("Значение должно находится в диапазоне от 300 до 1800");
-                }
-
+                SetParams(300, 1800, value);
                 _hiveWidth = value;
             }
         }
-        public double InletDiameters {
+
+        /// <summary>
+        /// Высота улья.
+        /// </summary>
+        public double InletDiameters
+        {
             get => _inletDiameters;
+
             set
             {
-                if (value < 10 || value > 75)
-                {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 10 до 75");
-                }
+                SetParams(10, 75, value);
 
                 _inletDiameters = value;
             }
         }
-        public double LegHeight {
+
+        /// <summary>
+        /// Высота ножек.
+        /// </summary>
+        public double LegHeight
+        {
             get =>_legHeight;
+
             set
             {
-                if (value < 50 || value > 1000 )
-                {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 50 до 1000");
-                }
-
+                SetParams(50, 1000, value);
                 _legHeight = value;
             }
         }
-        public double LegLength {
+
+        /// <summary>
+        /// Длина ножек.
+        /// </summary>
+        public double LegLength
+        {
             get => _legLength;
+
             set
             {
                 if (value < 50 || value > 600 || (value - 1) >= _hiveLength)
@@ -122,8 +174,14 @@ namespace Hive_Kompas.Logic
                 _legLength = value;
             }
         }
-        public double LegWidth {
+
+        /// <summary>
+        /// Ширина ножек.
+        /// </summary>
+        public double LegWidth
+        {
             get => _legWidth;
+
             set
             {
                 if (value < 50 || value > 600 || (value - 1) >= _hiveWidth)
@@ -135,17 +193,30 @@ namespace Hive_Kompas.Logic
                 _legWidth = value;
             }
         }
-        public double RoofThickness {
+
+        /// <summary>
+        /// Толщина крыши.
+        /// </summary>
+        public double RoofThickness
+        {
             get => _roofThickness;
+
             set
             {
-                if (value < 5 || value > 50)
-                {
-                    throw new ArgumentException("Значение должно находится в диапазоне от 5 до 50");
-                }
-
+                SetParams(5, 50, value);
                 _roofThickness = value;
             }
+        }
+
+        private double SetParams(int min, int max, double value)
+        {
+            if (value < min || value > max)
+            {
+                throw new ArgumentException("Неправильный ввод, значение ( " + value +
+                                            " ) должно находиться в диапазоне от " +
+                                            min + " до " + max);
+            }
+            return value;
         }
     }
 }

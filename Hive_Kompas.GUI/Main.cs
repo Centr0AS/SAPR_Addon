@@ -19,7 +19,7 @@ namespace Hive_Kompas.GUI
         }
         
         /// <summary>
-        /// Функция, которая производит автозаполнение данных в поля.
+        /// Производит автозаполнение данных в поля формы.
         /// </summary>
         private void AutoFill()
         {
@@ -102,7 +102,7 @@ namespace Hive_Kompas.GUI
         }
 
         /// <summary>
-        /// Функция, которая является обработчиком события(срабатывает при изменение значения  в текстовом поле).
+        /// Обработчик события(срабатывает при изменение значения  в текстовом поле).
         /// </summary>
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -134,7 +134,7 @@ namespace Hive_Kompas.GUI
         }
 
         /// <summary>
-        /// Обработчик, который ограничивает ввод символов в поля.
+        /// Обработчик, ограничивает ввод символов в поля.
         /// </summary>
         private void Textbox_KeyPress(object sender, KeyPressEventArgs e)
         {

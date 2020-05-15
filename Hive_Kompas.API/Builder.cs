@@ -38,7 +38,7 @@ namespace Hive_Kompas.API
         }
 
         /// <summary>
-        /// Функция выполняет построение основной части улья.
+        /// Выполняет построение основной части улья.
         /// </summary>
         private void CreateMain(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -68,7 +68,7 @@ namespace Hive_Kompas.API
         }
 
         /// <summary>
-        ///  Функция выполяет построение 1ой ножки улья.
+        ///  Выполяет построение 1ой ножки улья.
         /// </summary>
         private void CreateLeg1(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -98,7 +98,7 @@ namespace Hive_Kompas.API
         }
 
         /// <summary>
-        /// Функция выполняет построение 2й ножки улья.
+        /// Выполняет построение 2й ножки улья.
         /// </summary>
         private void CreateLeg2(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -131,7 +131,7 @@ namespace Hive_Kompas.API
 
 
         /// <summary>
-        /// Функция выполняет построение 3ей ножки улья
+        /// Выполняет построение 3ей ножки улья
         /// </summary>
         private void CreateLeg3(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -163,7 +163,7 @@ namespace Hive_Kompas.API
         }
 
         /// <summary>
-        /// Функция выполняет построение 4ой ножки улья
+        /// Выполняет построение 4ой ножки улья
         /// </summary>
         private void CreateLeg4(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -193,7 +193,7 @@ namespace Hive_Kompas.API
         }
 
         /// <summary>
-        /// Функция выполняет построение крыши улья.
+        /// Выполняет построение крыши улья.
         /// </summary>
         private void CreateRoof(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -215,19 +215,19 @@ namespace Hive_Kompas.API
             par1.x = 0;
             par1.y = 10;
             par1.width = hiveParams.HiveLength + 20;
-            par1.height = thickness; // Больше похоже на ширину, нежели высоту.
-            par1.style = 1; // При нуле не видно деталь.
+            par1.height = thickness; 
+            par1.style = 1; 
 
             iDocument2D.ksRectangle(par1);
 
-            // Закончить редактировать эскиз
+            
             iDefinitionSketch.EndEdit();
 
             ExctrusionSketch(iPart, iSketch, hiveParams.HiveWidth + 20, true);
         }
 
         /// <summary>
-        /// Функция создает отверстия в улье для пчёл
+        /// Создает отверстия в улье для пчёл
         /// </summary>
         private void CreateHoles(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -303,7 +303,7 @@ namespace Hive_Kompas.API
         }
 
         /// <summary>
-        /// Функция создает дополнительные крыши для этажей.
+        /// Создает дополнительные крыши для этажей.
         /// </summary>
         private void CreateBorder(ksPart iPart, KompasObject kompas, HiveParams hiveParams)
         {
@@ -638,8 +638,7 @@ namespace Hive_Kompas.API
                 (ksCutExtrusionDefinition)entityCutExtr.GetDefinition();
 
             cutExtrDef.SetSketch(iSketch);
-
-            //cutExtrDef.directionType = (short)Direction_Type.dtNormal; 
+ 
             cutExtrDef.directionType = (short)Direction_Type.dtReverse;
             cutExtrDef.SetSideParam(true, (short)End_Type.etBlind, 50, 20, false);
             cutExtrDef.SetThinParam(false, 0, 0, 0);
@@ -656,13 +655,13 @@ namespace Hive_Kompas.API
         private void CreateSketch(out ksEntity iSketch, out ksSketchDefinition iDefinitionSketch, double offset = 0)
         {
             #region Создание смещенную плоскость -------------------------
-            // интерфейс смещенной плоскости
+            
             ksEntity iPlane = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
 
-            // Получаем интрефейс настроек смещенной плоскости
+            
             ksPlaneOffsetDefinition iPlaneDefinition = (ksPlaneOffsetDefinition)iPlane.GetDefinition();
 
-            // Настройки : начальная позиция, направление смещения, расстояние от плоскости, принять все настройки (create)
+           
             iPlaneDefinition.SetPlane(iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ));
             iPlaneDefinition.direction = true;
             iPlaneDefinition.offset = offset;

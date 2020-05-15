@@ -132,6 +132,7 @@ namespace Hive_Kompas.GUI
             Builder builder = new Builder();
             builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams, BackSide, LeftSide, RightSide);   
         }
+
         /// <summary>
         /// Обработчик, который ограничивает ввод символов в поля.
         /// </summary>

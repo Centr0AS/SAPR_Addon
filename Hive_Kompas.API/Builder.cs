@@ -687,13 +687,11 @@ namespace Hive_Kompas.API
         private void OffsetCreateSketch(out ksEntity iSketch, out ksSketchDefinition iDefinitionSketch, double offset = 0)
         {
             #region Создание смещенную плоскость -------------------------
-            // интерфейс смещенной плоскости
+           
             ksEntity iPlane = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
 
-            // Получаем интрефейс настроек смещенной плоскости
             ksPlaneOffsetDefinition iPlaneDefinition = (ksPlaneOffsetDefinition)iPlane.GetDefinition();
 
-            // Настройки : начальная позиция, направление смещения, расстояние от плоскости, принять все настройки (create)
             iPlaneDefinition.SetPlane(iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ));
             iPlaneDefinition.direction = true;
             iPlaneDefinition.offset = offset;

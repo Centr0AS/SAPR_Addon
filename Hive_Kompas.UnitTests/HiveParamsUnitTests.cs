@@ -20,6 +20,7 @@ namespace Hive_Kompas.UnitTests
                 5);
 
         }
+
         [Test(Description = "Проверка высоты улья")]
         public void TestHeightGet_CorrectValue()
         {

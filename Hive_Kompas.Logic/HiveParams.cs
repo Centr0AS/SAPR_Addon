@@ -71,18 +71,6 @@ namespace Hive_Kompas.Logic
             RoofThickness = roofThickness;
         }
 
-        //public HiveParams_defaultValues()
-        //{
-        //    HiveHeight = 300;
-        //    HiveLength = 300;
-        //    HiveWidth = 300;
-        //    InletDiameters = 10;
-        //    LegHeight = 100;
-        //    LegLength = 50;
-        //    LegWidth = 50;
-        //    RoofThickness = 5;
-        //}
-
         //Property;
 
         /// <summary>

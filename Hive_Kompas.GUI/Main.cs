@@ -45,14 +45,6 @@ namespace Hive_Kompas.GUI
 
             List<TextBox> inputList = new List<TextBox>();
 
-            //foreach (Control x in this.Controls)
-            //{
-            //    if (x is TextBox)
-            //    {
-            //        // ((TextBox)x).Text = String.Empty;
-            //        inputList.AddRange(new TextBox[] { (TextBox)x });
-            //    }
-            //}
             inputList.AddRange(new TextBox[]
             { HheightTextBox, HlengthTextBox, HwidthTextBox, InLetDiamTextBox, LlengthTextBox,
             LwidthTextBox, LheigthTextBox, RoofThicknessTextBox});
@@ -62,7 +54,6 @@ namespace Hive_Kompas.GUI
             List<double> maxInputList = new List<double>();
             maxInputList.AddRange(new double[] { 1800, 1800, 1800, 75, 600, 600, 1000, 50 });
 
-            bool correctInput = false;
 
              for (int j = 0; j != 9; j++)
              {
@@ -78,7 +69,6 @@ namespace Hive_Kompas.GUI
                     else
                     {
                         inputList[i].BackColor = System.Drawing.Color.Green;
-                        correctInput = true;
                         label18.Visible = false;
                     }
                 }

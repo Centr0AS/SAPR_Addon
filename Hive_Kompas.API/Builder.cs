@@ -7,7 +7,7 @@ namespace Hive_Kompas.API
 {
     public class Builder
     {
-       private ksPart iPart;
+       private ksPart _iPart;
 
         /// <summary>
         /// Функция, которая выполняет построение всех деталей.
@@ -17,7 +17,7 @@ namespace Hive_Kompas.API
         /// <param name="hiveparams"> класс, хранящий параметры улья</param>
         public void Build(ksPart iPart, KompasObject kompas, HiveParams hiveparams, bool BackSide, bool LeftSide, bool RightSide)
         {
-            this.iPart = iPart;
+            this._iPart = iPart;
             CreateMain(iPart, kompas, hiveparams);
             CreateLeg1(iPart, kompas, hiveparams);
             CreateLeg2(iPart, kompas, hiveparams);
@@ -656,19 +656,19 @@ namespace Hive_Kompas.API
         {
             #region Создание смещенную плоскость -------------------------
             
-            ksEntity iPlane = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
+            ksEntity iPlane = (ksEntity)_iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
 
             
             ksPlaneOffsetDefinition iPlaneDefinition = (ksPlaneOffsetDefinition)iPlane.GetDefinition();
 
            
-            iPlaneDefinition.SetPlane(iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ));
+            iPlaneDefinition.SetPlane(_iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ));
             iPlaneDefinition.direction = true;
             iPlaneDefinition.offset = offset;
             iPlane.Create();
             #endregion --------------------------------------------------
 
-            iSketch = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_sketch);
+            iSketch = (ksEntity)_iPart.NewEntity((short)Obj3dType.o3d_sketch);
 
             iDefinitionSketch = iSketch.GetDefinition();
 
@@ -687,17 +687,17 @@ namespace Hive_Kompas.API
         {
             #region Создание смещенную плоскость -------------------------
            
-            ksEntity iPlane = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
+            ksEntity iPlane = (ksEntity)_iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
 
             ksPlaneOffsetDefinition iPlaneDefinition = (ksPlaneOffsetDefinition)iPlane.GetDefinition();
 
-            iPlaneDefinition.SetPlane(iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ));
+            iPlaneDefinition.SetPlane(_iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ));
             iPlaneDefinition.direction = true;
             iPlaneDefinition.offset = offset;
             iPlane.Create();
             #endregion --------------------------------------------------
 
-            iSketch = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_sketch);
+            iSketch = (ksEntity)_iPart.NewEntity((short)Obj3dType.o3d_sketch);
 
             iDefinitionSketch = iSketch.GetDefinition();
 

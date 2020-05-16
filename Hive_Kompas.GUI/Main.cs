@@ -9,8 +9,8 @@ namespace Hive_Kompas.GUI
 {
     public partial class Main : Form
     {
-        private KompasConnector kompasConnector;
-        private HiveParams hiveParams;
+        private KompasConnector _kompasConnector;
+        private HiveParams _hiveParams;
 
         public Main()
         {
@@ -91,7 +91,7 @@ namespace Hive_Kompas.GUI
                 else
                 {
                     button1.Enabled = true;
-                    hiveParams = new HiveParams(Convert.ToDouble(HheightTextBox.Text), Convert.ToDouble(HlengthTextBox.Text), Convert.ToDouble(HwidthTextBox.Text),
+                    _hiveParams = new HiveParams(Convert.ToDouble(HheightTextBox.Text), Convert.ToDouble(HlengthTextBox.Text), Convert.ToDouble(HwidthTextBox.Text),
                     Convert.ToDouble(InLetDiamTextBox.Text), Convert.ToDouble(LheigthTextBox.Text), Convert.ToDouble(LlengthTextBox.Text),
                     Convert.ToDouble(LwidthTextBox.Text), Convert.ToDouble(RoofThicknessTextBox.Text));
                     label18.Visible = false;
@@ -118,7 +118,7 @@ namespace Hive_Kompas.GUI
             bool LeftSide = false;
             bool RightSide = false;
 
-            kompasConnector = new KompasConnector();
+            _kompasConnector = new KompasConnector();
 
             if (BackSidecheckBox.Checked)
             { BackSide = true; }
@@ -130,7 +130,7 @@ namespace Hive_Kompas.GUI
             { RightSide = true; }
 
             Builder builder = new Builder();
-            builder.Build(kompasConnector.iPart, kompasConnector.kompas, hiveParams, BackSide, LeftSide, RightSide);   
+            builder.Build(_kompasConnector.iPart, _kompasConnector.kompas, _hiveParams, BackSide, LeftSide, RightSide);   
         }
 
         /// <summary>
